@@ -16,9 +16,9 @@ export const Layout = () => {
       </main>
       
       {/* Chat Button positioned at bottom right */}
-      <div className="fixed bottom-6 right-6 z-50">
+      {/* <div className="fixed bottom-6 right-6 z-50">
         <ChatButton />
-      </div>
+      </div> */}
     </div>
   );
 };
