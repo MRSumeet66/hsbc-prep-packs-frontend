@@ -1,8 +1,8 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { SearchBox } from '@/components/features/customer/SearchBox';
-import { CustomerList } from '@/components/features/customer/CustomerList';
-import { TrendingUp, AlertTriangle, AlertCircle, Calendar, Bell } from 'lucide-react';
+import { DashboardCards } from '@/components/features/dashboard/DashboardCards';
+import { Calendar, Bell } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Badge } from '@/components/ui/badge';
@@ -90,149 +90,6 @@ const newsItems = [
 
 export const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState('');
-  const [filteredCustomers, setFilteredCustomers] = useState<any[]>([]);
-  
-  // Mock customer data - in a real app, this would come from an API
-  const customers = [
-    {
-      id: '1',
-      name: 'Acme Corporation',
-      businessType: 'Manufacturing',
-      revenue: '£1,256,000',
-      priority: 1,
-      teamLead: 'Sarah Johnson',
-      channelPreference: 'email',
-      tags: [
-        { id: '1', label: 'Growth Opportunity', type: 'success', icon: <TrendingUp className="h-3 w-3" /> }
-      ]
-    },
-    {
-      id: '2',
-      name: 'Dynamic Solutions Ltd',
-      businessType: 'Technology',
-      revenue: '£2,345,000',
-      priority: 3,
-      teamLead: 'Thomas Miller',
-      channelPreference: 'phone',
-      tags: [
-        { id: '2', label: 'Recent Complaint', type: 'risk', icon: <AlertCircle className="h-3 w-3" /> }
-      ]
-    },
-    {
-      id: '3',
-      name: 'Green Energy Partners',
-      businessType: 'Energy',
-      revenue: '£987,000',
-      priority: 2,
-      teamLead: 'Rebecca Taylor',
-      channelPreference: 'letter',
-      tags: [
-        { id: '3', label: 'High Risk', type: 'warning', icon: <AlertTriangle className="h-3 w-3" /> }
-      ]
-    },
-    {
-      id: '4',
-      name: 'Metro Hospitality Group',
-      businessType: 'Hospitality',
-      revenue: '£3,421,000',
-      priority: 4,
-      teamLead: 'Andrew Wilson',
-      channelPreference: 'email',
-      tags: [
-        { id: '4', label: 'Growth Opportunity', type: 'success', icon: <TrendingUp className="h-3 w-3" /> }
-      ]
-    },
-    {
-      id: '5',
-      name: 'Patterson Healthcare',
-      businessType: 'Healthcare',
-      revenue: '£5,678,000',
-      priority: 5,
-      teamLead: 'Jennifer Adams',
-      channelPreference: 'phone',
-      tags: []
-    },
-    {
-      id: '6',
-      name: 'Global Logistics Ltd',
-      businessType: 'Transport',
-      revenue: '£4,127,000',
-      priority: 6,
-      teamLead: 'Michael Roberts',
-      channelPreference: 'letter',
-      tags: [
-        { id: '5', label: 'Growth Opportunity', type: 'success', icon: <TrendingUp className="h-3 w-3" /> }
-      ]
-    },
-    {
-      id: '7',
-      name: 'TechVision Innovations',
-      businessType: 'Technology',
-      revenue: '£2,865,000',
-      priority: 7,
-      teamLead: 'David Thompson',
-      channelPreference: 'email',
-      tags: [
-        { id: '6', label: 'Growth Opportunity', type: 'success', icon: <TrendingUp className="h-3 w-3" /> }
-      ]
-    },
-    {
-      id: '8',
-      name: 'Harrison Construction',
-      businessType: 'Construction',
-      revenue: '£6,215,000',
-      priority: 8,
-      teamLead: 'Elizabeth Cooper',
-      channelPreference: 'phone',
-      tags: []
-    },
-    {
-      id: '9',
-      name: 'Emerald Retail Group',
-      businessType: 'Retail',
-      revenue: '£3,750,000',
-      priority: 9,
-      teamLead: 'Robert Jackson',
-      channelPreference: 'letter',
-      tags: [
-        { id: '7', label: 'Recent Complaint', type: 'risk', icon: <AlertCircle className="h-3 w-3" /> }
-      ]
-    },
-    {
-      id: '10',
-      name: 'Heritage Foods Ltd',
-      businessType: 'Food & Beverage',
-      revenue: '£1,980,000',
-      priority: 10,
-      teamLead: 'Alice Palmer',
-      channelPreference: 'email',
-      tags: []
-    },
-    {
-      id: '11',
-      name: 'Quantum Electronics',
-      businessType: 'Manufacturing',
-      revenue: '£3,250,000',
-      priority: 11,
-      teamLead: 'George Williams',
-      channelPreference: 'phone',
-      tags: [
-        { id: '8', label: 'High Risk', type: 'warning', icon: <AlertTriangle className="h-3 w-3" /> }
-      ]
-    }
-  ];
-
-  // Filter customers based on search query
-  useEffect(() => {
-    const filtered = customers.filter(customer =>
-      customer.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      customer.businessType.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    
-    // Sort by priority
-    const sorted = [...filtered].sort((a, b) => a.priority - b.priority);
-    setFilteredCustomers(sorted);
-  }, [searchQuery]);
 
   return (
     <div className="container max-w-full py-6">
@@ -291,9 +148,8 @@ export const HomePage = () => {
             <SearchBox value={searchQuery} onChange={setSearchQuery} />
           </div>
           
-          <div className="mt-6">
-            <h2 className="text-xl font-semibold mb-4"></h2>
-            <CustomerList customers={filteredCustomers} />
+          <div className="mt-8">
+            <DashboardCards />
           </div>
         </div>
       </div>
