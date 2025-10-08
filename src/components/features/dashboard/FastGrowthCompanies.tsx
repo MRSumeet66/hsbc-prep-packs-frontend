@@ -6,6 +6,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { TrendingUp, ArrowUpDown } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 interface Company {
   name: string;
@@ -15,12 +16,24 @@ interface Company {
 }
 
 const generateCompanies = (): Company[] => {
-  const industries = ['Technology', 'Healthcare', 'Finance', 'Energy', 'Retail'];
+  const industries = ['Technology', 'Healthcare', 'Finance', 'Energy', 'Retail', 'Manufacturing', 'Construction'];
+  const companyNames = [
+    'Acme Corporation', 'Dynamic Solutions Ltd', 'Green Energy Partners', 'Metro Hospitality Group',
+    'Patterson Healthcare', 'Global Logistics Ltd', 'TechVision Innovations', 'Harrison Construction',
+    'Emerald Retail Group', 'Quantum Technologies Inc', 'Sterling Finance Group', 'Apex Manufacturing Ltd',
+    'Horizon Energy Solutions', 'Phoenix Retail Holdings', 'Stellar Healthcare Systems', 'Atlantic Logistics Corp',
+    'Pinnacle Construction Group', 'Summit Technology Partners', 'Velocity Manufacturing Co', 'Zenith Financial Services',
+    'Aurora Energy Holdings', 'Precision Engineering Ltd', 'Nexus Healthcare Group', 'Titan Construction Holdings',
+    'Innovate Technology Solutions', 'Premier Logistics International', 'Evergreen Retail Corporation', 'Silverstone Financial Ltd',
+    'Cascade Energy Partners', 'Cornerstone Manufacturing Group', 'Beacon Healthcare Services', 'Imperial Logistics Solutions',
+    'Vanguard Technology Group', 'Redwood Retail Holdings', 'Crown Financial Partners', 'Element Energy Corporation',
+    'Unified Manufacturing Systems', 'Pacific Logistics Group', 'Meridian Healthcare Partners', 'Skyline Construction Ltd',
+  ];
   const companies: Company[] = [];
   
   for (let i = 0; i < 100; i++) {
     companies.push({
-      name: `Growth Co ${i + 1}`,
+      name: i < companyNames.length ? companyNames[i] : `${companyNames[i % companyNames.length]} ${Math.floor(i / companyNames.length) + 1}`,
       industry: industries[i % industries.length],
       cagr: Math.floor(Math.random() * 50) + 20,
       turnover: Math.floor(Math.random() * 5000000) + 1000000,
@@ -62,11 +75,20 @@ export const FastGrowthCompanies = () => {
         <div className="space-y-3">
           {companies.slice(0, 4).map((company, index) => (
             <div key={index} className="flex justify-between items-center p-2 border border-border/50 rounded-lg">
-              <div>
-                <p className="font-medium text-sm">{company.name}</p>
+              <div className="flex-1 min-w-0 mr-2">
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <p className="font-medium text-sm truncate">{company.name}</p>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>{company.name}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
                 <p className="text-xs text-muted-foreground">{company.industry}</p>
               </div>
-              <Badge className="bg-green-500/20 text-green-700 dark:text-green-400">
+              <Badge className="bg-green-500/20 text-green-700 dark:text-green-400 flex-shrink-0">
                 {company.cagr}% CAGR
               </Badge>
             </div>

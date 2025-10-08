@@ -6,6 +6,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { DollarSign, ArrowUpDown } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 interface Customer {
   name: string;
@@ -14,12 +15,24 @@ interface Customer {
 }
 
 const generateCustomers = (): Customer[] => {
-  const industries = ['Manufacturing', 'Technology', 'Healthcare', 'Finance', 'Retail', 'Energy'];
+  const industries = ['Manufacturing', 'Technology', 'Healthcare', 'Finance', 'Retail', 'Energy', 'Construction', 'Hospitality'];
+  const customerNames = [
+    'Acme Corporation', 'Dynamic Solutions Ltd', 'Green Energy Partners', 'Metro Hospitality Group',
+    'Patterson Healthcare', 'Global Logistics Ltd', 'TechVision Innovations', 'Harrison Construction',
+    'Emerald Retail Group', 'Quantum Technologies Inc', 'Sterling Finance Group', 'Apex Manufacturing Ltd',
+    'Horizon Energy Solutions', 'Phoenix Retail Holdings', 'Stellar Healthcare Systems', 'Atlantic Logistics Corp',
+    'Pinnacle Construction Group', 'Summit Technology Partners', 'Velocity Manufacturing Co', 'Zenith Financial Services',
+    'Aurora Energy Holdings', 'Precision Engineering Ltd', 'Nexus Healthcare Group', 'Titan Construction Holdings',
+    'Innovate Technology Solutions', 'Premier Logistics International', 'Evergreen Retail Corporation', 'Silverstone Financial Ltd',
+    'Cascade Energy Partners', 'Cornerstone Manufacturing Group', 'Beacon Healthcare Services', 'Imperial Logistics Solutions',
+    'Vanguard Technology Group', 'Redwood Retail Holdings', 'Crown Financial Partners', 'Element Energy Corporation',
+    'Unified Manufacturing Systems', 'Pacific Logistics Group', 'Meridian Healthcare Partners', 'Skyline Construction Ltd',
+  ];
   const customers: Customer[] = [];
   
   for (let i = 0; i < 100; i++) {
     customers.push({
-      name: `Customer ${i + 1}`,
+      name: i < customerNames.length ? customerNames[i] : `${customerNames[i % customerNames.length]} ${Math.floor(i / customerNames.length) + 1}`,
       industry: industries[i % industries.length],
       revenue: Math.floor(Math.random() * 5000000) + 500000,
     });
@@ -63,11 +76,20 @@ export const TopRevenueCustomers = () => {
         <div className="space-y-3">
           {customers.slice(0, 4).map((customer, index) => (
             <div key={index} className="flex justify-between items-center p-2 border border-border/50 rounded-lg">
-              <div>
-                <p className="font-medium text-sm">{customer.name}</p>
+              <div className="flex-1 min-w-0 mr-2">
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <p className="font-medium text-sm truncate">{customer.name}</p>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>{customer.name}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
                 <p className="text-xs text-muted-foreground">{customer.industry}</p>
               </div>
-              <Badge className="bg-blue-500/20 text-blue-700 dark:text-blue-400">
+              <Badge className="bg-blue-500/20 text-blue-700 dark:text-blue-400 flex-shrink-0">
                 £{(customer.revenue / 1000000).toFixed(2)}M
               </Badge>
             </div>
