@@ -100,8 +100,9 @@ export const HomePage = () => {
             <CardHeader className="pb-2">
               <CardTitle className="text-lg flex items-center gap-2">
                 <Bell className="h-4 w-4" />
-                Customer Highlights
+                Recent Activity
               </CardTitle>
+              <p className="text-xs text-muted-foreground mt-1">14 days ago</p>
             </CardHeader>
             <CardContent>
               <ScrollArea className="h-[calc(100vh-12rem)] pr-4">

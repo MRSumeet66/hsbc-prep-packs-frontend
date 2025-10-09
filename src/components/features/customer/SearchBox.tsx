@@ -68,7 +68,7 @@ export const SearchBox = ({ value, onChange }: SearchBoxProps) => {
   };
 
   return (
-    <div className="relative mb-6 animate-in" ref={dropdownRef}>
+    <div className="relative mb-6 animate-in z-50" ref={dropdownRef}>
       <div className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground z-10">
         <Search className="h-full w-full" />
       </div>
