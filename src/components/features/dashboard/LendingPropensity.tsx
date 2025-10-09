@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { useNavigate } from 'react-router-dom';
+import { getAllCustomers } from '@/data/mockCustomerData';
 
 interface Customer {
   id: string;
@@ -18,32 +19,12 @@ interface Customer {
 }
 
 const generateCustomers = (): Customer[] => {
-  const industries = ['Manufacturing', 'Technology', 'Healthcare', 'Retail', 'Construction', 'Energy', 'Finance', 'Hospitality'];
-  const customerNames = [
-    'Acme Corporation', 'Dynamic Solutions Ltd', 'Green Energy Partners', 'Metro Hospitality Group',
-    'Patterson Healthcare', 'Global Logistics Ltd', 'TechVision Innovations', 'Harrison Construction',
-    'Emerald Retail Group', 'Quantum Technologies Inc', 'Sterling Finance Group', 'Apex Manufacturing Ltd',
-    'Horizon Energy Solutions', 'Phoenix Retail Holdings', 'Stellar Healthcare Systems', 'Atlantic Logistics Corp',
-    'Pinnacle Construction Group', 'Summit Technology Partners', 'Velocity Manufacturing Co', 'Zenith Financial Services',
-    'Aurora Energy Holdings', 'Precision Engineering Ltd', 'Nexus Healthcare Group', 'Titan Construction Holdings',
-    'Innovate Technology Solutions', 'Premier Logistics International', 'Evergreen Retail Corporation', 'Silverstone Financial Ltd',
-    'Cascade Energy Partners', 'Cornerstone Manufacturing Group', 'Beacon Healthcare Services', 'Imperial Logistics Solutions',
-    'Vanguard Technology Group', 'Redwood Retail Holdings', 'Crown Financial Partners', 'Element Energy Corporation',
-    'Unified Manufacturing Systems', 'Pacific Logistics Group', 'Meridian Healthcare Partners', 'Skyline Construction Ltd',
-  ];
-  const customers: Customer[] = [];
-  
-  for (let i = 0; i < 100; i++) {
-    customers.push({
-      id: (i + 1).toString(),
-      name: i < customerNames.length ? customerNames[i] : `${customerNames[i % customerNames.length]} ${Math.floor(i / customerNames.length) + 1}`,
-      industry: industries[i % industries.length],
-      lendingScore: Math.floor(Math.random() * 40) + 60,
-      loanInterest: Math.floor(Math.random() * 500000) + 50000,
-    });
-  }
-  
-  return customers.sort((a, b) => b.lendingScore - a.lendingScore);
+  const baseCustomers = getAllCustomers();
+  return baseCustomers.map(customer => ({
+    ...customer,
+    lendingScore: Math.floor(Math.random() * 40) + 60,
+    loanInterest: Math.floor(Math.random() * 500000) + 50000,
+  })).sort((a, b) => b.lendingScore - a.lendingScore);
 };
 
 const customers = generateCustomers();

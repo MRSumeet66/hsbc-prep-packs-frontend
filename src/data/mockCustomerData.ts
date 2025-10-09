@@ -1340,3 +1340,20 @@ export const getMockCustomerData = (customerId: string): CustomerData => {
   // Return the requested customer or the default one if not found
   return customers[customerId] || customers['1'];
 };
+
+// Export a list of all available customers for search and dashboard use
+export const getAllCustomers = () => {
+  return [
+    { id: '1', name: 'Acme Corporation', industry: 'Manufacturing' },
+    { id: '2', name: 'Dynamic Solutions Ltd', industry: 'Technology' },
+    { id: '3', name: 'Green Energy Partners', industry: 'Energy' },
+    { id: '4', name: 'Metro Hospitality Group', industry: 'Hospitality' },
+    { id: '5', name: 'Patterson Healthcare', industry: 'Healthcare' },
+    { id: '6', name: 'Global Logistics Ltd', industry: 'Transport' },
+    { id: '7', name: 'TechVision Innovations', industry: 'Technology' },
+    { id: '8', name: 'Harrison Construction', industry: 'Construction' },
+    { id: '9', name: 'Emerald Retail Group', industry: 'Retail' },
+    { id: '10', name: 'Sterling Finance Group', industry: 'Finance' },
+    { id: '11', name: 'Quantum Electronics', industry: 'Manufacturing' },
+  ];
+};

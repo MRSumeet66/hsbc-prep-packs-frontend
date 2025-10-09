@@ -45,7 +45,7 @@ const CustomerTimeline: React.FC<CustomerTimelineProps> = ({ events }) => {
   return (
     <Card className="border-border/60">
       <CardHeader className="pb-3">
-        <CardTitle className="text-lg font-medium">Customer Journey</CardTitle>
+        <CardTitle className="text-lg font-medium">Recent Activity (14 days ago)</CardTitle>
       </CardHeader>
       <CardContent className="p-0">
         <ScrollArea className="h-[300px] pr-4">
