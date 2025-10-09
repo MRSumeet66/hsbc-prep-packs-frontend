@@ -2,7 +2,7 @@
 import React from 'react';
 import { CustomerData } from './types/customer-types';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { AlertCircle, Sparkles } from 'lucide-react';
+import { AlertCircle, Sparkles, Info } from 'lucide-react';
 
 interface CustomerInsightsProps {
   customer: CustomerData;
@@ -94,7 +94,10 @@ export const CustomerInsights: React.FC<CustomerInsightsProps> = ({ customer }) 
       <h3 className="font-medium text-lg mb-4 flex items-center gap-2">
         <Sparkles className="h-5 w-5 text-hsbc-red" />
         AI Generated Insights
-        <span className="text-xs text-muted-foreground font-normal ml-2">(Will develop under Phase 2)</span>
+        <span className="text-xs text-muted-foreground font-normal ml-2 flex items-center gap-1">
+          <Info className="h-3 w-3" />
+          (Will develop under Phase 2)
+        </span>
       </h3>
       <div className="space-y-3">
         {insights.map((insight, idx) => (
