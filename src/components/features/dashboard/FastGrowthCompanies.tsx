@@ -73,7 +73,7 @@ export const FastGrowthCompanies = () => {
       </CardHeader>
       <CardContent>
         <div className="space-y-3">
-          {companies.slice(0, 4).map((company, index) => (
+          {companies.slice(0, 3).map((company, index) => (
             <div key={index} className="flex justify-between items-center p-2 border border-border/50 rounded-lg">
               <div className="flex-1 min-w-0 mr-2">
                 <TooltipProvider>

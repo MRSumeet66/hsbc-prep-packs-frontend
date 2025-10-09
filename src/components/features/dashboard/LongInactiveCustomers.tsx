@@ -87,7 +87,7 @@ export const LongInactiveCustomers = () => {
       </CardHeader>
       <CardContent>
         <div className="space-y-3">
-          {customers.slice(0, 4).map((customer, index) => (
+          {customers.slice(0, 3).map((customer, index) => (
             <div key={index} className="flex justify-between items-center p-2 border border-border/50 rounded-lg">
               <div className="flex-1 min-w-0 mr-2">
                 <TooltipProvider>
