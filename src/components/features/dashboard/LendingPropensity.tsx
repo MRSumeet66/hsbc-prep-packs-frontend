@@ -7,8 +7,10 @@ import { Brain, ArrowUpDown } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { useNavigate } from 'react-router-dom';
 
 interface Customer {
+  id: string;
   name: string;
   industry: string;
   lendingScore: number;
@@ -33,6 +35,7 @@ const generateCustomers = (): Customer[] => {
   
   for (let i = 0; i < 100; i++) {
     customers.push({
+      id: (i + 1).toString(),
       name: i < customerNames.length ? customerNames[i] : `${customerNames[i % customerNames.length]} ${Math.floor(i / customerNames.length) + 1}`,
       industry: industries[i % industries.length],
       lendingScore: Math.floor(Math.random() * 40) + 60,
@@ -46,6 +49,7 @@ const generateCustomers = (): Customer[] => {
 const customers = generateCustomers();
 
 export const LendingPropensity = () => {
+  const navigate = useNavigate();
   const [sortBy, setSortBy] = useState<'lendingScore' | 'loanInterest'>('lendingScore');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
 
@@ -80,7 +84,11 @@ export const LendingPropensity = () => {
       <CardContent>
         <div className="space-y-3">
           {customers.slice(0, 3).map((customer, index) => (
-            <div key={index} className="flex justify-between items-center p-2 border border-border/50 rounded-lg">
+            <div 
+              key={index} 
+              className="flex justify-between items-center p-2 border border-border/50 rounded-lg cursor-pointer hover:bg-muted/50 transition-colors"
+              onClick={() => navigate(`/customer/${customer.id}`)}
+            >
               <div className="flex-1 min-w-0 mr-2">
                 <TooltipProvider>
                   <Tooltip>

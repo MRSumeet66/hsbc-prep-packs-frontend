@@ -7,8 +7,10 @@ import { Clock, ArrowUpDown } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { useNavigate } from 'react-router-dom';
 
 interface Customer {
+  id: string;
   name: string;
   lastContactDate: string;
   daysSinceContact: number;
@@ -38,6 +40,7 @@ const generateCustomers = (): Customer[] => {
     date.setDate(date.getDate() - daysAgo);
     
     customers.push({
+      id: (i + 1).toString(),
       name: i < customerNames.length ? customerNames[i] : `${customerNames[i % customerNames.length]} ${Math.floor(i / customerNames.length) + 1}`,
       lastContactDate: date.toISOString().split('T')[0],
       daysSinceContact: daysAgo,
@@ -51,6 +54,7 @@ const generateCustomers = (): Customer[] => {
 const customers = generateCustomers();
 
 export const LongInactiveCustomers = () => {
+  const navigate = useNavigate();
   const [sortBy, setSortBy] = useState<'daysSinceContact' | 'lastContactDate'>('daysSinceContact');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
 
@@ -88,7 +92,11 @@ export const LongInactiveCustomers = () => {
       <CardContent>
         <div className="space-y-3">
           {customers.slice(0, 3).map((customer, index) => (
-            <div key={index} className="flex justify-between items-center p-2 border border-border/50 rounded-lg">
+            <div 
+              key={index} 
+              className="flex justify-between items-center p-2 border border-border/50 rounded-lg cursor-pointer hover:bg-muted/50 transition-colors"
+              onClick={() => navigate(`/customer/${customer.id}`)}
+            >
               <div className="flex-1 min-w-0 mr-2">
                 <TooltipProvider>
                   <Tooltip>

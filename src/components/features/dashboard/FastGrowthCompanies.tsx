@@ -7,8 +7,10 @@ import { TrendingUp, ArrowUpDown } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { useNavigate } from 'react-router-dom';
 
 interface Company {
+  id: string;
   name: string;
   industry: string;
   cagr: number;
@@ -33,6 +35,7 @@ const generateCompanies = (): Company[] => {
   
   for (let i = 0; i < 100; i++) {
     companies.push({
+      id: (i + 1).toString(),
       name: i < companyNames.length ? companyNames[i] : `${companyNames[i % companyNames.length]} ${Math.floor(i / companyNames.length) + 1}`,
       industry: industries[i % industries.length],
       cagr: Math.floor(Math.random() * 50) + 20,
@@ -46,6 +49,7 @@ const generateCompanies = (): Company[] => {
 const companies = generateCompanies();
 
 export const FastGrowthCompanies = () => {
+  const navigate = useNavigate();
   const [sortBy, setSortBy] = useState<'cagr' | 'turnover'>('cagr');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
 
@@ -74,7 +78,11 @@ export const FastGrowthCompanies = () => {
       <CardContent>
         <div className="space-y-3">
           {companies.slice(0, 3).map((company, index) => (
-            <div key={index} className="flex justify-between items-center p-2 border border-border/50 rounded-lg">
+            <div 
+              key={index} 
+              className="flex justify-between items-center p-2 border border-border/50 rounded-lg cursor-pointer hover:bg-muted/50 transition-colors"
+              onClick={() => navigate(`/customer/${company.id}`)}
+            >
               <div className="flex-1 min-w-0 mr-2">
                 <TooltipProvider>
                   <Tooltip>
