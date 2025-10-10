@@ -90,7 +90,7 @@ export const CustomerInsights: React.FC<CustomerInsightsProps> = ({ customer }) 
   const insights = generateInsights();
 
   return (
-    <div className="mt-6 p-6 border border-dashed border-border/40 rounded-lg">
+    <div className="mt-6 p-6 border border-border/40 rounded-lg">
       <h3 className="font-medium text-lg mb-4 flex items-center gap-2">
         <Sparkles className="h-5 w-5 text-hsbc-red" />
         AI Generated Insights
