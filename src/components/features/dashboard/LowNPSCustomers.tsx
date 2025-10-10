@@ -6,7 +6,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { AlertCircle, ArrowUpDown } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { useNavigate } from 'react-router-dom';
 import { getAllCustomers } from '@/data/mockCustomerData';
 
@@ -85,16 +85,14 @@ export const LowNPSCustomers = () => {
               onClick={() => navigate(`/customer/${customer.id}`)}
             >
               <div className="flex-1 min-w-0 mr-2">
-                <TooltipProvider>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <p className="font-medium text-sm truncate">{customer.name}</p>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>{customer.name}</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <p className="font-medium text-sm truncate">{customer.name}</p>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{customer.name}</p>
+                  </TooltipContent>
+                </Tooltip>
                 <p className="text-xs text-muted-foreground">{customer.note}</p>
               </div>
               <Badge variant="destructive" className="ml-2 flex-shrink-0">

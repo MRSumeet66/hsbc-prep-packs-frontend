@@ -6,7 +6,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { TrendingUp, ArrowUpDown } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { useNavigate } from 'react-router-dom';
 import { getAllCustomers } from '@/data/mockCustomerData';
 
@@ -65,16 +65,14 @@ export const FastGrowthCompanies = () => {
               onClick={() => navigate(`/customer/${company.id}`)}
             >
               <div className="flex-1 min-w-0 mr-2">
-                <TooltipProvider>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <p className="font-medium text-sm truncate">{company.name}</p>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>{company.name}</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <p className="font-medium text-sm truncate">{company.name}</p>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{company.name}</p>
+                  </TooltipContent>
+                </Tooltip>
                 <p className="text-xs text-muted-foreground">{company.industry}</p>
               </div>
               <Badge className="bg-green-500/20 text-green-700 dark:text-green-400 flex-shrink-0">
