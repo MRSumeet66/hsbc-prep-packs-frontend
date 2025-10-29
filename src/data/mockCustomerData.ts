@@ -109,22 +109,9 @@ export const getMockCustomerData = (customerId: string): CustomerData => {
       ],
       networkRelationships: [
         {
-          name: 'David Thompson',
-          role: 'VP of Operations',
-          company: 'Global Supply Co.',
-          relationship: 'Strategic Partner'
-        },
-        {
-          name: 'Lisa Chen',
-          role: 'CEO',
-          company: 'Innovation Tech',
-          relationship: 'Key Client'
-        },
-        {
-          name: 'Marcus Rodriguez',
-          role: 'Finance Director',
-          company: 'Regional Manufacturing Ltd',
-          relationship: 'Supplier'
+          cin: '1047382956',
+          parent: 'Acme Corporation PLC',
+          mg: '1025'
         }
       ],
       productRevenue: [

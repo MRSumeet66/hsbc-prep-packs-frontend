@@ -28,10 +28,9 @@ export interface Survey {
 }
 
 export interface NetworkRelationship {
-  name: string;
-  role: string;
-  company: string;
-  relationship: string;
+  cin: string;
+  parent: string;
+  mg: string;
 }
 
 export interface TimelineEvent {

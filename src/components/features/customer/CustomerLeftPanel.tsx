@@ -77,12 +77,18 @@ export const CustomerLeftPanel: React.FC<CustomerLeftPanelProps> = ({ customer }
               <h3 className="font-medium mb-3">Network Relationship</h3>
               <div className="space-y-3 flex-grow overflow-y-auto pr-1">
                 {customer.networkRelationships.map((relationship, idx) => (
-                  <div key={idx} className="p-3 rounded-md border border-border/40 text-sm">
-                    <div className="font-medium">{relationship.name}</div>
-                    <div className="text-xs text-muted-foreground mt-1">{relationship.role}</div>
-                    <div className="text-xs mt-1">{relationship.company}</div>
-                    <div className="text-xs mt-2 px-2 py-1 bg-muted rounded inline-block">
-                      {relationship.relationship}
+                  <div key={idx} className="p-3 rounded-md border border-border/40 text-sm space-y-2">
+                    <div className="flex">
+                      <span className="font-medium text-muted-foreground min-w-[60px]">CIN:</span>
+                      <span>{relationship.cin}</span>
+                    </div>
+                    <div className="flex">
+                      <span className="font-medium text-muted-foreground min-w-[60px]">Parent:</span>
+                      <span>{relationship.parent}</span>
+                    </div>
+                    <div className="flex">
+                      <span className="font-medium text-muted-foreground min-w-[60px]">MG:</span>
+                      <span>{relationship.mg}</span>
                     </div>
                   </div>
                 ))}
