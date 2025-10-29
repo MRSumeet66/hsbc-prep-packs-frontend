@@ -49,7 +49,7 @@ export const CustomerLeftPanel: React.FC<CustomerLeftPanelProps> = ({ customer }
         {customer.surveys.length > 0 && (
           <Card className="border-border/60 flex-grow">
             <div className="p-4 h-full flex flex-col">
-              <h3 className="font-medium mb-3">Survey Results</h3>
+              <h3 className="font-medium mb-3">ICS Results</h3>
               <div className="space-y-3 flex-grow overflow-y-auto pr-1">
                 {customer.surveys
                   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
