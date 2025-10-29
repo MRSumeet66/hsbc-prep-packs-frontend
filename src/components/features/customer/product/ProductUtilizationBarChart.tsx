@@ -57,7 +57,7 @@ export const ProductUtilizationBarChart: React.FC<ProductUtilizationBarChartProp
   return (
     <Card className="animate-in border-none shadow-md bg-white rounded-xl h-full" style={{ animationDelay: '600ms' }}>
       <CardHeader className="border-b border-gray-100 bg-white pb-3">
-        <CardTitle className="text-lg font-semibold text-gray-800">Product Utilization</CardTitle>
+        <CardTitle className="text-lg font-semibold text-gray-800">Product Breakdown by Revenue</CardTitle>
       </CardHeader>
       <CardContent className="pt-4 flex-grow overflow-auto">
         <ResponsiveContainer width="100%" height={300}>
