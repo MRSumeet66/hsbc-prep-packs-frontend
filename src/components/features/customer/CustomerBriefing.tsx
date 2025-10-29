@@ -52,7 +52,7 @@ export const CustomerBriefing = ({ customer }: CustomerBriefingProps) => {
                 <PopoverTrigger asChild>
                   <button className="flex items-center space-x-1 text-xs bg-background/80 hover:bg-background px-2 py-1 rounded-md border border-border/40">
                     <Users className="h-4 w-4" />
-                    <span>Key Contacts</span>
+                    <span>Contact Details</span>
                   </button>
                 </PopoverTrigger>
                 <PopoverContent className="w-80 p-0" align="end">
