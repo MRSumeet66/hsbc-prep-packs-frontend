@@ -11,43 +11,55 @@ interface RevenueTrendChartProps {
 export const RevenueTrendChart: React.FC<RevenueTrendChartProps> = ({ customer }) => {
   // Use the monthlyRevenue data from customer object if available
   const chartData = useMemo(() => {
+    let baseData;
+    
     if (customer.monthlyRevenue && customer.monthlyRevenue.length > 0) {
-      return customer.monthlyRevenue;
+      baseData = customer.monthlyRevenue;
+    } else {
+      // Fallback to generate data if monthlyRevenue is not available
+      // This should not happen once all customer data is updated
+      const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      const currentDate = new Date();
+      const currentMonth = currentDate.getMonth();
+      
+      // Calculate target total revenue
+      const targetTotalRevenue = 1256000;
+      const monthlyAverage = targetTotalRevenue / 12;
+      
+      baseData = Array.from({ length: 12 }, (_, i) => {
+        const monthIndex = (currentMonth - i + 12) % 12;
+        const monthName = months[monthIndex];
+        
+        // Create consistent values based on month index rather than random
+        const position = i / 11; 
+        const multiplier = 0.85 + (Math.sin(position * Math.PI * 2.5) * 0.3);
+        const currentYearRevenue = Math.round(monthlyAverage * multiplier);
+        
+        // Previous year is always 80% of current year (consistent pattern)
+        const previousYearRevenue = Math.round(currentYearRevenue * 0.8);
+        
+        return {
+          month: monthName,
+          currentYearRevenue,
+          previousYearRevenue
+        };
+      }).reverse(); // Reverse to show oldest first
     }
     
-    // Fallback to generate data if monthlyRevenue is not available
-    // This should not happen once all customer data is updated
-    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    const currentDate = new Date();
-    const currentMonth = currentDate.getMonth();
+    // Calculate average revenue for BBPM (average of current year revenue)
+    const averageBBPM = baseData.reduce((sum, item) => sum + item.currentYearRevenue, 0) / baseData.length;
     
-    // Calculate target total revenue
-    const targetTotalRevenue = 1256000;
-    const monthlyAverage = targetTotalRevenue / 12;
-    
-    return Array.from({ length: 12 }, (_, i) => {
-      const monthIndex = (currentMonth - i + 12) % 12;
-      const monthName = months[monthIndex];
-      
-      // Create consistent values based on month index rather than random
-      const position = i / 11; 
-      const multiplier = 0.85 + (Math.sin(position * Math.PI * 2.5) * 0.3);
-      const currentYearRevenue = Math.round(monthlyAverage * multiplier);
-      
-      // Previous year is always 80% of current year (consistent pattern)
-      const previousYearRevenue = Math.round(currentYearRevenue * 0.8);
-      
-      return {
-        month: monthName,
-        currentYearRevenue,
-        previousYearRevenue
-      };
-    }).reverse(); // Reverse to show oldest first
+    // Add average line to all data points
+    return baseData.map(item => ({
+      ...item,
+      averageBBPM: Math.round(averageBBPM)
+    }));
   }, [customer.id, customer.monthlyRevenue]);
 
   // Colors for the chart
   const currentYearColor = "#EE3524";
   const previousYearColor = "#F7D3D0";
+  const averageColor = "#666666";
 
   return (
     <Card className="animate-in border-none shadow-md bg-white rounded-xl" style={{ animationDelay: '500ms' }}>
@@ -101,6 +113,15 @@ export const RevenueTrendChart: React.FC<RevenueTrendChartProps> = ({ customer }
               strokeWidth={2}
               dot={{ fill: previousYearColor, r: 3 }}
               activeDot={{ r: 5, fill: previousYearColor, stroke: '#fff', strokeWidth: 2 }}
+            />
+            <Line 
+              type="monotone" 
+              dataKey="averageBBPM" 
+              name="Average Revenue for BBPM"
+              stroke={averageColor} 
+              strokeWidth={2}
+              strokeDasharray="5 5"
+              dot={false}
             />
           </LineChart>
         </ResponsiveContainer>
