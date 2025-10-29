@@ -27,7 +27,7 @@ export const InternationalCustomersDialog: React.FC<InternationalCustomersDialog
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-2xl max-h-[80vh]">
         <DialogHeader>
-          <DialogTitle>All International Customers</DialogTitle>
+          <DialogTitle>All UK Regions</DialogTitle>
         </DialogHeader>
         <ScrollArea className="h-[60vh] pr-4">
           <div className="space-y-2">
@@ -43,7 +43,7 @@ export const InternationalCustomersDialog: React.FC<InternationalCustomersDialog
                   <span className="font-medium">{company.name}</span>
                 </div>
                 <span className="text-lg font-semibold text-primary">
-                  £{(company.revenue / 1000).toFixed(0)}k
+                  £{(company.revenue / 1000000).toFixed(2)}M
                 </span>
               </div>
             ))}

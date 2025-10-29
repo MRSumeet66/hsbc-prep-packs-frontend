@@ -4,30 +4,35 @@ import { Button } from '@/components/ui/button';
 import { TrendingUp, ExternalLink } from 'lucide-react';
 import { InternationalCustomersDialog } from './InternationalCustomersDialog';
 
-// Generate 100 companies with mock data
-const generateCompanies = () => {
-  const prefixes = ['Global', 'Tech', 'Digital', 'Advanced', 'Prime', 'Elite', 'Smart', 'Vision', 'Innovation', 'Future'];
-  const types = ['Solutions', 'Technologies', 'Industries', 'Systems', 'Enterprises', 'Group', 'Corp', 'International', 'Ventures', 'Partners'];
-  const companies = [];
+// UK Regions with mock revenue data
+const generateRegions = () => {
+  const regions = [
+    'London',
+    'South East',
+    'North West',
+    'East of England',
+    'West Midlands',
+    'South West',
+    'Yorkshire and The Humber',
+    'East Midlands',
+    'North East',
+    'Scotland',
+    'Wales',
+    'Northern Ireland'
+  ];
   
-  for (let i = 0; i < 100; i++) {
-    const prefix = prefixes[Math.floor(Math.random() * prefixes.length)];
-    const type = types[Math.floor(Math.random() * types.length)];
-    const name = `${prefix} ${type} ${i > 9 ? '' : 'Ltd'}`.trim();
-    const revenue = Math.floor(Math.random() * 500000) + 100000; // £100k to £600k
-    companies.push({ name, revenue });
-  }
-  
-  // Sort by revenue descending
-  return companies.sort((a, b) => b.revenue - a.revenue);
+  return regions.map(name => ({
+    name,
+    revenue: Math.floor(Math.random() * 3000000) + 500000 // £500k to £3.5M per region
+  })).sort((a, b) => b.revenue - a.revenue);
 };
 
-const allCompanies = generateCompanies();
+const allRegions = generateRegions();
 
 export const RevenueChart = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
-  const topCompanies = allCompanies.slice(0, 3);
-  const totalRevenue = allCompanies.reduce((sum, company) => sum + company.revenue, 0);
+  const topRegions = allRegions.slice(0, 3);
+  const totalRevenue = allRegions.reduce((sum, region) => sum + region.revenue, 0);
 
   return (
     <>
@@ -41,7 +46,7 @@ export const RevenueChart = () => {
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
-            {topCompanies.map((company, index) => (
+            {topRegions.map((region, index) => (
               <div
                 key={index}
                 className="flex items-center justify-between p-3 rounded-lg border border-border/40 hover:bg-accent/50 transition-colors"
@@ -50,10 +55,10 @@ export const RevenueChart = () => {
                   <span className="text-sm font-medium text-muted-foreground">
                     #{index + 1}
                   </span>
-                  <span className="font-medium text-sm">{company.name}</span>
+                  <span className="font-medium text-sm">{region.name}</span>
                 </div>
                 <span className="text-lg font-semibold text-primary">
-                  £{(company.revenue / 1000).toFixed(0)}k
+                  £{(region.revenue / 1000000).toFixed(2)}M
                 </span>
               </div>
             ))}
@@ -62,7 +67,7 @@ export const RevenueChart = () => {
               className="w-full mt-4"
               onClick={() => setDialogOpen(true)}
             >
-              View All 100 Companies
+              View All Regions
               <ExternalLink className="ml-2 h-4 w-4" />
             </Button>
           </div>
@@ -72,7 +77,7 @@ export const RevenueChart = () => {
       <InternationalCustomersDialog
         open={dialogOpen}
         onOpenChange={setDialogOpen}
-        companies={allCompanies}
+        companies={allRegions}
       />
     </>
   );
