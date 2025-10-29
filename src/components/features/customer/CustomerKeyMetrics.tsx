@@ -46,7 +46,7 @@ export const CustomerKeyMetrics: React.FC<CustomerKeyMetricsProps> = ({ customer
       <Card className="animate-in border-none shadow-md bg-white rounded-xl overflow-hidden" style={{ animationDelay: '300ms' }}>
         <div className="h-1.5 bg-[#EE3524] w-full"></div>
         <CardContent className="p-4">
-          <div className="text-xs uppercase font-medium text-muted-foreground mb-1">NPS Score</div>
+          <div className="text-xs uppercase font-medium text-muted-foreground mb-1">ICS Score</div>
           <div className="flex items-baseline">
             <div className="text-xl font-bold">{customer.npsScore}</div>
             <div className="text-xs text-emerald-500 ml-2">+0.7</div>
