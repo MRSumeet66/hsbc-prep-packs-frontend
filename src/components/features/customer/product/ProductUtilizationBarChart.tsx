@@ -41,9 +41,7 @@ export const ProductUtilizationBarChart: React.FC<ProductUtilizationBarChartProp
                   style={{ backgroundColor: entry.color }}
                 />
                 <p className="text-xs font-medium">
-                  {entry.dataKey === 'percentage' 
-                    ? `${Number(entry.value).toFixed(1)}%`
-                    : `£${Number(entry.value).toLocaleString()}`}
+                  £{Number(entry.value).toLocaleString()}
                 </p>
               </div>
             ))}
@@ -70,7 +68,7 @@ export const ProductUtilizationBarChart: React.FC<ProductUtilizationBarChartProp
             <XAxis 
               type="number" 
               tick={{ fill: '#8A898C', fontSize: 10 }} 
-              tickFormatter={(value) => `${value.toFixed(1)}%`}
+              tickFormatter={(value) => `£${(value / 1000).toFixed(0)}k`}
               domain={[0, 'dataMax']}
             />
             <YAxis 
@@ -87,8 +85,8 @@ export const ProductUtilizationBarChart: React.FC<ProductUtilizationBarChartProp
               margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
             />
             <Bar 
-              dataKey="percentage" 
-              name="Product Utilization %" 
+              dataKey="utilization" 
+              name="Revenue (£)" 
               fill="#EE3524"
               background={{ fill: '#F9F9F9' }}
             />
