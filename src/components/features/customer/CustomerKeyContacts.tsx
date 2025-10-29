@@ -17,7 +17,7 @@ export const CustomerKeyContacts: React.FC<CustomerKeyContactsProps> = ({ contac
   return (
     <CardContent className="pt-0">
       <div className="mt-4 pt-4 border-t border-border/40">
-        <h4 className="font-medium mb-2">Key Contacts</h4>
+        <h4 className="font-medium mb-2">Contact Details</h4>
         <div className="space-y-3">
           {contacts.map((contact, idx) => (
             <div key={idx} className="pb-2 border-b border-border/30 last:border-0">
