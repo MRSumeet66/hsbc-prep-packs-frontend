@@ -73,7 +73,7 @@ export const LowNPSCustomers = () => {
       <CardHeader>
         <CardTitle className="text-lg flex items-center gap-2">
           <AlertCircle className="h-5 w-5 text-red-500" />
-          Low NPS Customers
+          Low ICS Customers
         </CardTitle>
       </CardHeader>
       <CardContent>
@@ -96,7 +96,7 @@ export const LowNPSCustomers = () => {
                 <p className="text-xs text-muted-foreground">{customer.note}</p>
               </div>
               <Badge variant="destructive" className="ml-2 flex-shrink-0">
-                NPS: {customer.npsScore}
+                ICS: {customer.npsScore}
               </Badge>
             </div>
           ))}
@@ -104,11 +104,11 @@ export const LowNPSCustomers = () => {
         
         <Dialog>
           <DialogTrigger asChild>
-            <Button variant="outline" className="w-full mt-4">View All Low NPS Customers</Button>
+            <Button variant="outline" className="w-full mt-4">View All Low ICS Customers</Button>
           </DialogTrigger>
           <DialogContent className="max-w-4xl max-h-[80vh]">
             <DialogHeader>
-              <DialogTitle>Low NPS Customer List</DialogTitle>
+              <DialogTitle>Low ICS Customer List</DialogTitle>
             </DialogHeader>
             <ScrollArea className="h-[60vh]">
               <Table>
@@ -118,7 +118,7 @@ export const LowNPSCustomers = () => {
                     <TableHead>Customer Name</TableHead>
                     <TableHead className="cursor-pointer" onClick={() => toggleSort('npsScore')}>
                       <div className="flex items-center gap-1">
-                        NPS Score <ArrowUpDown className="h-3 w-3" />
+                        ICS Score <ArrowUpDown className="h-3 w-3" />
                       </div>
                     </TableHead>
                     <TableHead className="cursor-pointer" onClick={() => toggleSort('lastInteraction')}>
