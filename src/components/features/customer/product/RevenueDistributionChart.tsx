@@ -91,7 +91,7 @@ export const RevenueDistributionChart: React.FC<RevenueDistributionChartProps> =
   return (
     <Card className="animate-in border-none shadow-md bg-white rounded-xl" style={{ animationDelay: '500ms' }}>
       <CardHeader className="border-b border-gray-100 bg-white pb-3">
-        <CardTitle className="text-lg font-semibold text-gray-800">Revenue Distribution</CardTitle>
+        <CardTitle className="text-lg font-semibold text-gray-800">Monthly Revenue Distribution</CardTitle>
       </CardHeader>
       <CardContent className="pt-4 h-[250px]">
         <ResponsiveContainer width="100%" height="100%">
