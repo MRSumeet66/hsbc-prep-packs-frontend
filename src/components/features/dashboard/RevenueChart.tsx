@@ -26,7 +26,7 @@ export const RevenueChart = () => {
       <CardHeader>
         <CardTitle className="text-lg flex items-center gap-2">
           <TrendingUp className="h-5 w-5 text-primary" />
-          Client Revenue Data
+          International Customers
         </CardTitle>
         <p className="text-2xl font-bold text-primary">£{(totalRevenue / 1000000).toFixed(2)}M</p>
       </CardHeader>
