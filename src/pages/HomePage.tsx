@@ -2,10 +2,17 @@
 import React, { useState } from 'react';
 import { SearchBox } from '@/components/features/customer/SearchBox';
 import { DashboardCards } from '@/components/features/dashboard/DashboardCards';
-import { Calendar, Bell } from 'lucide-react';
+import { Calendar, Bell, MapPin } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Badge } from '@/components/ui/badge';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 // Mock news data
 const newsItems = [
@@ -90,6 +97,7 @@ const newsItems = [
 
 export const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedRegion, setSelectedRegion] = useState<string>('all');
 
   return (
     <div className="container max-w-full py-6">
@@ -147,6 +155,31 @@ export const HomePage = () => {
           
           <div className="mt-6">
             <SearchBox value={searchQuery} onChange={setSearchQuery} />
+            
+            {/* Region Filter */}
+            <div className="mt-4">
+              <Select value={selectedRegion} onValueChange={setSelectedRegion}>
+                <SelectTrigger className="w-full md:w-64 h-12 border-2 bg-card/90 shadow-sm z-40">
+                  <MapPin className="h-4 w-4 mr-2 text-muted-foreground" />
+                  <SelectValue placeholder="Filter by region" />
+                </SelectTrigger>
+                <SelectContent className="bg-card border-2 z-50">
+                  <SelectItem value="all">All Regions</SelectItem>
+                  <SelectItem value="london">London</SelectItem>
+                  <SelectItem value="south-east">South East</SelectItem>
+                  <SelectItem value="north-west">North West</SelectItem>
+                  <SelectItem value="east-england">East of England</SelectItem>
+                  <SelectItem value="west-midlands">West Midlands</SelectItem>
+                  <SelectItem value="south-west">South West</SelectItem>
+                  <SelectItem value="yorkshire">Yorkshire and The Humber</SelectItem>
+                  <SelectItem value="east-midlands">East Midlands</SelectItem>
+                  <SelectItem value="north-east">North East</SelectItem>
+                  <SelectItem value="scotland">Scotland</SelectItem>
+                  <SelectItem value="wales">Wales</SelectItem>
+                  <SelectItem value="northern-ireland">Northern Ireland</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
           </div>
           
           <div className="mt-8">
