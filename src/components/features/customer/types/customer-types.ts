@@ -27,6 +27,13 @@ export interface Survey {
   feedback: string;
 }
 
+export interface NetworkRelationship {
+  name: string;
+  role: string;
+  company: string;
+  relationship: string;
+}
+
 export interface TimelineEvent {
   id: string;
   title: string;
@@ -76,4 +83,5 @@ export interface CustomerData {
   monthlyRevenue?: MonthlyRevenue[];
   monthlyProductRevenue?: MonthlyProductRevenue[];
   transactions?: Transaction[];
+  networkRelationships?: NetworkRelationship[];
 }

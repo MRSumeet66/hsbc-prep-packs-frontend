@@ -70,6 +70,26 @@ export const CustomerLeftPanel: React.FC<CustomerLeftPanelProps> = ({ customer }
             </div>
           </Card>
         )}
+        
+        {customer.networkRelationships && customer.networkRelationships.length > 0 && (
+          <Card className="border-border/60 flex-grow">
+            <div className="p-4 h-full flex flex-col">
+              <h3 className="font-medium mb-3">Network Relationship</h3>
+              <div className="space-y-3 flex-grow overflow-y-auto pr-1">
+                {customer.networkRelationships.map((relationship, idx) => (
+                  <div key={idx} className="p-3 rounded-md border border-border/40 text-sm">
+                    <div className="font-medium">{relationship.name}</div>
+                    <div className="text-xs text-muted-foreground mt-1">{relationship.role}</div>
+                    <div className="text-xs mt-1">{relationship.company}</div>
+                    <div className="text-xs mt-2 px-2 py-1 bg-muted rounded inline-block">
+                      {relationship.relationship}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Card>
+        )}
       </div>
     </div>
   );

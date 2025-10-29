@@ -107,6 +107,26 @@ export const getMockCustomerData = (customerId: string): CustomerData => {
           feedback: 'Overall satisfied with services but would appreciate more tailored solutions for our industry-specific challenges.'
         }
       ],
+      networkRelationships: [
+        {
+          name: 'David Thompson',
+          role: 'VP of Operations',
+          company: 'Global Supply Co.',
+          relationship: 'Strategic Partner'
+        },
+        {
+          name: 'Lisa Chen',
+          role: 'CEO',
+          company: 'Innovation Tech',
+          relationship: 'Key Client'
+        },
+        {
+          name: 'Marcus Rodriguez',
+          role: 'Finance Director',
+          company: 'Regional Manufacturing Ltd',
+          relationship: 'Supplier'
+        }
+      ],
       productRevenue: [
         { name: 'Retail Payments', revenue: 456000 },
         { name: 'Commercial Cards', revenue: 234000 },
