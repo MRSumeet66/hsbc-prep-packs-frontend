@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { SearchBox } from '@/components/features/customer/SearchBox';
 import { DashboardCards } from '@/components/features/dashboard/DashboardCards';
-import { Calendar, Bell, MapPin } from 'lucide-react';
+import { Calendar, Bell, MapPin, Building2 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Badge } from '@/components/ui/badge';
@@ -98,6 +98,7 @@ const newsItems = [
 export const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedRegion, setSelectedRegion] = useState<string>('all');
+  const [selectedSector, setSelectedSector] = useState<string>('all');
 
   return (
     <div className="container max-w-full py-6">
@@ -156,8 +157,9 @@ export const HomePage = () => {
           <div className="mt-6">
             <SearchBox value={searchQuery} onChange={setSearchQuery} />
             
-            {/* Region Filter */}
-            <div className="mt-4">
+            {/* Filters */}
+            <div className="mt-4 flex flex-col md:flex-row gap-4">
+              {/* Region Filter */}
               <Select value={selectedRegion} onValueChange={setSelectedRegion}>
                 <SelectTrigger className="w-full md:w-64 h-12 border-2 bg-card/90 shadow-sm z-40">
                   <MapPin className="h-4 w-4 mr-2 text-muted-foreground" />
@@ -177,6 +179,29 @@ export const HomePage = () => {
                   <SelectItem value="scotland">Scotland</SelectItem>
                   <SelectItem value="wales">Wales</SelectItem>
                   <SelectItem value="northern-ireland">Northern Ireland</SelectItem>
+                </SelectContent>
+              </Select>
+
+              {/* Sector Filter */}
+              <Select value={selectedSector} onValueChange={setSelectedSector}>
+                <SelectTrigger className="w-full md:w-64 h-12 border-2 bg-card/90 shadow-sm z-40">
+                  <Building2 className="h-4 w-4 mr-2 text-muted-foreground" />
+                  <SelectValue placeholder="Filter by sector" />
+                </SelectTrigger>
+                <SelectContent className="bg-card border-2 z-50">
+                  <SelectItem value="all">All Sectors</SelectItem>
+                  <SelectItem value="technology">Technology</SelectItem>
+                  <SelectItem value="finance">Finance</SelectItem>
+                  <SelectItem value="healthcare">Healthcare</SelectItem>
+                  <SelectItem value="manufacturing">Manufacturing</SelectItem>
+                  <SelectItem value="retail">Retail</SelectItem>
+                  <SelectItem value="hospitality">Hospitality</SelectItem>
+                  <SelectItem value="construction">Construction</SelectItem>
+                  <SelectItem value="energy">Energy</SelectItem>
+                  <SelectItem value="education">Education</SelectItem>
+                  <SelectItem value="transportation">Transportation</SelectItem>
+                  <SelectItem value="real-estate">Real Estate</SelectItem>
+                  <SelectItem value="professional-services">Professional Services</SelectItem>
                 </SelectContent>
               </Select>
             </div>
