@@ -162,7 +162,7 @@ export const HomePage = () => {
               {/* Region Filter */}
               <Select value={selectedRegion} onValueChange={setSelectedRegion}>
                 <SelectTrigger className="w-full md:w-64 h-12 border-2 bg-card/90 shadow-sm z-40">
-                  <MapPin className="h-4 w-4 mr-2 text-muted-foreground" />
+                  <MapPin className="h-4 w-4 mr-1 text-muted-foreground" />
                   <SelectValue placeholder="Filter by region" />
                 </SelectTrigger>
                 <SelectContent className="bg-card border-2 z-50">
@@ -185,7 +185,7 @@ export const HomePage = () => {
               {/* Sector Filter */}
               <Select value={selectedSector} onValueChange={setSelectedSector}>
                 <SelectTrigger className="w-full md:w-64 h-12 border-2 bg-card/90 shadow-sm z-40">
-                  <Building2 className="h-4 w-4 mr-2 text-muted-foreground" />
+                  <Building2 className="h-4 w-4 mr-1 text-muted-foreground" />
                   <SelectValue placeholder="Filter by sector" />
                 </SelectTrigger>
                 <SelectContent className="bg-card border-2 z-50">
