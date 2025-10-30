@@ -161,7 +161,7 @@ export const HomePage = () => {
             <div className="mt-4 flex flex-col md:flex-row gap-4">
               {/* Region Filter */}
               <Select value={selectedRegion} onValueChange={setSelectedRegion}>
-                <SelectTrigger className="w-full md:w-64 h-12 border-2 bg-card/90 shadow-sm z-40">
+                <SelectTrigger className="w-full md:w-44 h-12 border-2 bg-card/90 shadow-sm z-40">
                   <MapPin className="h-4 w-4 mr-1 text-muted-foreground" />
                   <SelectValue placeholder="Filter by region" />
                 </SelectTrigger>
@@ -184,7 +184,7 @@ export const HomePage = () => {
 
               {/* Sector Filter */}
               <Select value={selectedSector} onValueChange={setSelectedSector}>
-                <SelectTrigger className="w-full md:w-64 h-12 border-2 bg-card/90 shadow-sm z-40">
+                <SelectTrigger className="w-full md:w-44 h-12 border-2 bg-card/90 shadow-sm z-40">
                   <Building2 className="h-4 w-4 mr-1 text-muted-foreground" />
                   <SelectValue placeholder="Filter by sector" />
                 </SelectTrigger>
