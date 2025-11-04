@@ -13,6 +13,7 @@ export const getMockCustomerData = (customerId: string): CustomerData => {
       vulnerability: 'Bereavement',
       bibStatus: 'Yes',
       dormancy: 'No',
+      inhibits: "Customer can't make payment of more than 5k pounds",
       description: 'Acme Corporation is a mid-sized manufacturing company with a strong focus on sustainable practices. They have been an HSBC customer since 2019 and utilize multiple banking services including commercial accounts, international payments, and trade finance solutions.',
       keyContacts: [
         {

@@ -88,4 +88,5 @@ export interface CustomerData {
   vulnerability?: string;
   bibStatus?: string;
   dormancy?: string;
+  inhibits?: string;
 }

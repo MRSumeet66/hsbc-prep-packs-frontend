@@ -44,6 +44,16 @@ export const CustomerLeftPanel: React.FC<CustomerLeftPanelProps> = ({ customer }
           </Card>
         )}
         
+        {/* Inhibits Section */}
+        {customer.inhibits && (
+          <Card className="border-border/60">
+            <div className="p-4">
+              <h3 className="font-medium mb-3">Inhibits</h3>
+              <p className="text-sm text-muted-foreground">{customer.inhibits}</p>
+            </div>
+          </Card>
+        )}
+        
         {/* Recent Activity Timeline */}
         {customer.timeline && (
           <CustomerTimeline events={customer.timeline as TimelineEvent[]} />
