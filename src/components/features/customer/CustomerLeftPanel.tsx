@@ -12,10 +12,6 @@ interface CustomerLeftPanelProps {
 export const CustomerLeftPanel: React.FC<CustomerLeftPanelProps> = ({ customer }) => {
   return (
     <div className="w-full md:w-1/4 space-y-6 flex flex-col h-[calc(100vh-8rem)]">
-      {customer.timeline && (
-        <CustomerTimeline events={customer.timeline as TimelineEvent[]} />
-      )}
-      
       {/* Network Relationship Section - Now First */}
       <div className="space-y-6 flex-grow flex flex-col">
         {customer.networkRelationships && customer.networkRelationships.length > 0 && (
@@ -42,6 +38,11 @@ export const CustomerLeftPanel: React.FC<CustomerLeftPanelProps> = ({ customer }
               </div>
             </div>
           </Card>
+        )}
+        
+        {/* Recent Activity Timeline */}
+        {customer.timeline && (
+          <CustomerTimeline events={customer.timeline as TimelineEvent[]} />
         )}
         
         {/* Complaints Section */}
