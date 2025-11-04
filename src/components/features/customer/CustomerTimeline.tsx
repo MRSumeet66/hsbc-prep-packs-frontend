@@ -2,7 +2,7 @@
 import React from 'react';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Check, Circle } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
 
 export interface TimelineEvent {
   id: string;
@@ -42,49 +42,48 @@ const CustomerTimeline: React.FC<CustomerTimelineProps> = ({ events }) => {
     return `${month} ${year.slice(-2)}`;
   };
 
+  const getStatusVariant = (status: string) => {
+    switch (status) {
+      case 'completed':
+        return 'default';
+      case 'current':
+        return 'secondary';
+      case 'pending':
+        return 'outline';
+      default:
+        return 'default';
+    }
+  };
+
   return (
     <Card className="border-border/60">
       <CardHeader className="pb-3">
-        <CardTitle className="text-lg font-medium">Recent Activity (14 days ago)</CardTitle>
+        <CardTitle className="text-lg font-medium">Journeys</CardTitle>
       </CardHeader>
       <CardContent className="p-0">
         <ScrollArea className="h-[300px] pr-4">
-          <div className="p-6 pt-0 space-y-4">
-            <div className="relative">
-              {/* Timeline line */}
-              <div className="absolute left-2 top-0 bottom-2 w-px bg-gray-200" />
-              
-              {/* Timeline events */}
-              {eventsWithStatus.map((event, idx) => (
-                <div 
-                  key={event.id} 
-                  className="mb-4 relative pl-16" 
-                >
-                  {/* Event marker */}
-                  <div className={`absolute left-2 -ml-[9px] top-1.5 w-[18px] h-[18px] flex items-center justify-center rounded-full border-2
-                    ${event.status === 'completed' ? 'bg-white border-hsbc-red text-hsbc-red' : 
-                      event.status === 'current' ? 'bg-hsbc-red border-hsbc-red text-white' : 
-                      'bg-gray-200 border-gray-200'}`}
-                  >
-                    {event.status === 'completed' ? <Check size={12} /> : null}
-                  </div>
-                  
-                  {/* Date display - updated to show month and year */}
-                  <div className="absolute left-7 text-xs font-medium text-gray-500 whitespace-nowrap">
-                    {formatDate(event.date)}
-                    <div className="text-[10px] leading-tight font-normal">{event.time}</div>
-                  </div>
-                  
-                  {/* Event content styled to match complaint/survey cards */}
-                  <div className="ml-4 p-2 rounded-md bg-muted/50 border border-border/40">
+          <div className="p-6 pt-0 space-y-3">
+            {eventsWithStatus.map((event) => (
+              <div 
+                key={event.id} 
+                className="p-3 rounded-md bg-muted/50 border border-border/40"
+              >
+                <div className="flex justify-between items-start gap-2">
+                  <div className="flex-1">
                     <div className="font-medium text-sm">{event.title}</div>
                     {event.subtitle && (
                       <div className="text-xs text-muted-foreground mt-0.5">{event.subtitle}</div>
                     )}
+                    <div className="text-xs text-muted-foreground mt-1">
+                      {formatDate(event.date)} • {event.time}
+                    </div>
                   </div>
+                  <Badge variant={getStatusVariant(event.status || 'completed')} className="capitalize shrink-0">
+                    {event.status || 'completed'}
+                  </Badge>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </ScrollArea>
       </CardContent>
