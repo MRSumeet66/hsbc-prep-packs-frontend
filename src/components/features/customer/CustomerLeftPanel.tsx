@@ -16,8 +16,35 @@ export const CustomerLeftPanel: React.FC<CustomerLeftPanelProps> = ({ customer }
         <CustomerTimeline events={customer.timeline as TimelineEvent[]} />
       )}
       
-      {/* Complaints Section */}
+      {/* Network Relationship Section - Now First */}
       <div className="space-y-6 flex-grow flex flex-col">
+        {customer.networkRelationships && customer.networkRelationships.length > 0 && (
+          <Card className="border-border/60 flex-grow">
+            <div className="p-4 h-full flex flex-col">
+              <h3 className="font-medium mb-3">Network Relationship</h3>
+              <div className="space-y-3 flex-grow overflow-y-auto pr-1">
+                {customer.networkRelationships.map((relationship, idx) => (
+                  <div key={idx} className="p-3 rounded-md border border-border/40 text-sm space-y-2">
+                    <div className="flex">
+                      <span className="font-medium text-muted-foreground min-w-[60px]">CIN:</span>
+                      <span>{relationship.cin}</span>
+                    </div>
+                    <div className="flex">
+                      <span className="font-medium text-muted-foreground min-w-[60px]">Parent:</span>
+                      <span>{relationship.parent}</span>
+                    </div>
+                    <div className="flex">
+                      <span className="font-medium text-muted-foreground min-w-[60px]">MG:</span>
+                      <span>{relationship.mg}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Card>
+        )}
+        
+        {/* Complaints Section */}
         {customer.complaints.length > 0 && (
           <Card className="border-border/60 flex-grow">
             <div className="p-4 h-full flex flex-col">
@@ -66,32 +93,6 @@ export const CustomerLeftPanel: React.FC<CustomerLeftPanelProps> = ({ customer }
                       <p className="mt-1 text-xs italic">"{survey.feedback}"</p>
                     </div>
                   ))}
-              </div>
-            </div>
-          </Card>
-        )}
-        
-        {customer.networkRelationships && customer.networkRelationships.length > 0 && (
-          <Card className="border-border/60 flex-grow">
-            <div className="p-4 h-full flex flex-col">
-              <h3 className="font-medium mb-3">Network Relationship</h3>
-              <div className="space-y-3 flex-grow overflow-y-auto pr-1">
-                {customer.networkRelationships.map((relationship, idx) => (
-                  <div key={idx} className="p-3 rounded-md border border-border/40 text-sm space-y-2">
-                    <div className="flex">
-                      <span className="font-medium text-muted-foreground min-w-[60px]">CIN:</span>
-                      <span>{relationship.cin}</span>
-                    </div>
-                    <div className="flex">
-                      <span className="font-medium text-muted-foreground min-w-[60px]">Parent:</span>
-                      <span>{relationship.parent}</span>
-                    </div>
-                    <div className="flex">
-                      <span className="font-medium text-muted-foreground min-w-[60px]">MG:</span>
-                      <span>{relationship.mg}</span>
-                    </div>
-                  </div>
-                ))}
               </div>
             </div>
           </Card>
