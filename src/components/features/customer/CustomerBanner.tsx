@@ -32,13 +32,33 @@ export const CustomerBanner: React.FC<CustomerBannerProps> = ({
   return (
     <div className="w-full bg-gradient-to-r from-background to-muted/30 border-b border-border/40 py-4 px-6">
       <div className="flex justify-between items-center">
-        <div>
-          <h1 className="text-2xl font-semibold">{customer.name} Summary</h1>
-          <p className="text-sm text-muted-foreground">
-            {customer.businessType} • Client since {clientSinceDate}
-          </p>
+        <div className="flex-1">
+          <h1 className="text-2xl font-semibold mb-3">{customer.name} Summary</h1>
+          <div className="flex flex-wrap gap-4">
+            <div className="text-sm">
+              <span className="text-muted-foreground">{customer.businessType} • Client since {clientSinceDate}</span>
+            </div>
+            <div className="flex gap-4 text-sm">
+              <div>
+                <span className="text-muted-foreground">Customer Type: </span>
+                <span className="font-medium">{customer.customerType || 'N/A'}</span>
+              </div>
+              <div>
+                <span className="text-muted-foreground">Vulnerability / CCN: </span>
+                <span className="font-medium">{customer.vulnerability || 'None'}</span>
+              </div>
+              <div>
+                <span className="text-muted-foreground">BIB Status: </span>
+                <span className="font-medium">{customer.bibStatus || 'N/A'}</span>
+              </div>
+              <div>
+                <span className="text-muted-foreground">Dormancy: </span>
+                <span className="font-medium">{customer.dormancy || 'N/A'}</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="flex space-x-2">
+        <div className="flex space-x-2 ml-4">
           <RefreshButton 
             isGenerating={isGenerating} 
             onRefresh={onRefresh} 

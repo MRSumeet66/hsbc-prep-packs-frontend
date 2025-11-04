@@ -83,4 +83,8 @@ export interface CustomerData {
   monthlyProductRevenue?: MonthlyProductRevenue[];
   transactions?: Transaction[];
   networkRelationships?: NetworkRelationship[];
+  customerType?: string;
+  vulnerability?: string;
+  bibStatus?: string;
+  dormancy?: string;
 }
