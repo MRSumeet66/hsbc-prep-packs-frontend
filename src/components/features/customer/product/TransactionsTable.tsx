@@ -50,13 +50,6 @@ export const TransactionsTable: React.FC<TransactionsTableProps> = ({ customer }
         amount: Math.round(customer.productRevenue[2]?.revenue * 0.08) || 5400,
         status: 'completed',
       },
-      {
-        id: 't5',
-        date: new Date(Date.now() - 28 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-        product: productNames[1] || 'FX Services',
-        amount: Math.round(customer.productRevenue[1]?.revenue * 0.09) || 7800,
-        status: 'completed',
-      },
     ];
   }, [customer.id, customer.products, customer.productRevenue, customer.transactions]);
 
