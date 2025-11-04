@@ -31,6 +31,7 @@ export interface NetworkRelationship {
   cin: string;
   parent: string;
   mg: string;
+  linkedBusinesses: string;
 }
 
 export interface TimelineEvent {

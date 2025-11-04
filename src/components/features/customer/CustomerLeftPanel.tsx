@@ -33,6 +33,10 @@ export const CustomerLeftPanel: React.FC<CustomerLeftPanelProps> = ({ customer }
                       <span className="font-medium text-muted-foreground min-w-[60px]">MG:</span>
                       <span>{relationship.mg}</span>
                     </div>
+                    <div className="flex">
+                      <span className="font-medium text-muted-foreground min-w-[60px]">Linked Businesses:</span>
+                      <span>{relationship.linkedBusinesses}</span>
+                    </div>
                   </div>
                 ))}
               </div>
