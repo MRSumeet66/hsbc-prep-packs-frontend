@@ -67,7 +67,7 @@ export const CustomerLeftPanel: React.FC<CustomerLeftPanelProps> = ({ customer }
         
         {/* Inhibits Section */}
         {customer.inhibits && customer.inhibits.length > 0 && (
-          <Card className="border-border/60">
+          <Card className="border-border/60 -ml-[1%]">
             <CardHeader className="pb-3">
               <CardTitle className="text-lg font-medium">Inhibits</CardTitle>
             </CardHeader>
