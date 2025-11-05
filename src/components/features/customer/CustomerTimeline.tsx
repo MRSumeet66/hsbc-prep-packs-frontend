@@ -55,7 +55,7 @@ const CustomerTimeline: React.FC<CustomerTimelineProps> = ({ events }) => {
   };
 
   return (
-    <Card className="border-border/60">
+    <Card className="border-border/60 -ml-[1%]">
       <CardHeader className="pb-3">
         <CardTitle className="text-lg font-medium">Journeys</CardTitle>
       </CardHeader>

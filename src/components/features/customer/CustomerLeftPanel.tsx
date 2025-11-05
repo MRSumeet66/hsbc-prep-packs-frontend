@@ -94,7 +94,7 @@ export const CustomerLeftPanel: React.FC<CustomerLeftPanelProps> = ({ customer }
         
         {/* Complaints Section */}
         {customer.complaints.length > 0 && (
-          <Card className="border-border/60 flex-grow">
+          <Card className="border-border/60 flex-grow -ml-[1%]">
             <CardHeader className="pb-3">
               <CardTitle className="text-lg font-medium">Complaints</CardTitle>
             </CardHeader>
@@ -126,7 +126,7 @@ export const CustomerLeftPanel: React.FC<CustomerLeftPanelProps> = ({ customer }
         )}
         
         {customer.surveys.length > 0 && (
-          <Card className="border-border/60 flex-grow">
+          <Card className="border-border/60 flex-grow -ml-[1%]">
             <CardHeader className="pb-3">
               <CardTitle className="text-lg font-medium">ICS Results</CardTitle>
             </CardHeader>
