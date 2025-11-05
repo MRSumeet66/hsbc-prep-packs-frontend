@@ -74,7 +74,7 @@ export const CustomerBanner: React.FC<CustomerBannerProps> = ({
             </Card>
           </div>
         </div>
-        <div className="flex flex-col justify-center space-y-2 ml-4">
+        <div className="flex items-center justify-center space-x-2 ml-4">
           <RefreshButton 
             isGenerating={isGenerating} 
             onRefresh={onRefresh} 
