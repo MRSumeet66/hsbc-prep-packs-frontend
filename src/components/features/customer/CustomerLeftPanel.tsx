@@ -16,7 +16,7 @@ export const CustomerLeftPanel: React.FC<CustomerLeftPanelProps> = ({ customer }
       {/* Network Relationship Section - Now First */}
       <div className="space-y-6 flex-grow flex flex-col">
         {customer.networkRelationships && customer.networkRelationships.length > 0 && (
-          <Card className="border-border/60 flex-grow">
+          <Card className="border-border/60 flex-grow -ml-[5%]">
             <CardHeader className="pb-3">
               <CardTitle className="text-lg font-medium">Network Relationship</CardTitle>
             </CardHeader>
