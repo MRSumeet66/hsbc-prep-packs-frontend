@@ -21,77 +21,77 @@ const newsItems = [
     title: 'Acme Corporation',
     timestamp: 'Today, 10:30 AM',
     type: 'success',
-    description: 'Acme Corporation has announced plans to expand operations into new markets, with expected revenue growth of 15% next quarter.'
+    description: 'Global manufacturing and distribution company specializing in industrial equipment and automation solutions.'
   },
   {
     id: '2',
     title: 'Dynamic Solutions Ltd',
     timestamp: 'Yesterday, 3:45 PM',
     type: 'risk',
-    description: 'A complaint has been filed against Dynamic Solutions Ltd regarding service delivery delays.'
+    description: 'IT consulting and software development firm providing enterprise solutions for mid-sized businesses.'
   },
   {
     id: '3',
     title: 'Green Energy Partners',
     timestamp: '2 days ago',
     type: 'warning',
-    description: 'Updated risk assessment for Green Energy Partners shows increased exposure in renewable energy sector.'
+    description: 'Renewable energy provider focused on solar and wind power installations for commercial clients.'
   },
   {
     id: '4',
     title: 'Metro Hospitality Group',
     timestamp: '3 days ago',
     type: 'info',
-    description: 'Metro Hospitality Group has expressed interest in our new business banking product suite.'
+    description: 'Hotel and restaurant chain operating premium properties across major metropolitan areas.'
   },
   {
     id: '5',
     title: 'Patterson Healthcare',
     timestamp: 'Last week',
     type: 'success',
-    description: 'Quarterly review completed for Patterson Healthcare shows strong financial performance and growth potential.'
+    description: 'Private healthcare provider with a network of clinics and specialist medical facilities.'
   },
   {
     id: '6',
     title: 'Global Logistics Ltd',
     timestamp: 'Last week',
     type: 'info',
-    description: 'Global Logistics Ltd has increased their foreign exchange volume by 25% this quarter.'
+    description: 'International freight forwarding and supply chain management company with worldwide operations.'
   },
   {
     id: '7',
     title: 'TechVision Innovations',
     timestamp: '2 weeks ago',
     type: 'success',
-    description: 'TechVision Innovations has shared plans to expand into Asian markets with our support.'
+    description: 'Technology startup developing AI-powered business intelligence and analytics platforms.'
   },
   {
     id: '8',
     title: 'Harrison Construction',
     timestamp: '2 weeks ago',
     type: 'info',
-    description: 'Harrison Construction has requested additional project financing for their new commercial development.'
+    description: 'Commercial construction company specializing in large-scale office and retail developments.'
   },
   {
     id: '9',
     title: 'Emerald Retail Group',
     timestamp: '3 weeks ago',
     type: 'risk',
-    description: 'Emerald Retail Group has reported ongoing issues with their payment processing system integration.'
+    description: 'Multi-brand retail operator with stores in shopping centers and high streets across the region.'
   },
   {
     id: '10',
     title: 'Heritage Foods',
     timestamp: 'Last month',
     type: 'success',
-    description: 'Heritage Foods has successfully entered three new export markets using our trade finance solutions.'
+    description: 'Food processing and distribution company focusing on organic and locally sourced products.'
   },
   {
     id: '11',
     title: 'Quantum Electronics',
     timestamp: 'Last month',
     type: 'warning',
-    description: 'Quantum Electronics has requested a review of their global supply chain financing arrangements.'
+    description: 'Electronics manufacturer producing components for telecommunications and consumer devices.'
   }
 ];
 
