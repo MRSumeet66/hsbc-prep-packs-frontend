@@ -11,7 +11,7 @@ interface CustomerLeftPanelProps {
 
 export const CustomerLeftPanel: React.FC<CustomerLeftPanelProps> = ({ customer }) => {
   return (
-    <div className="w-full md:w-[280px] space-y-6 flex flex-col h-[calc(100vh-8rem)]">
+    <div className="w-full md:w-[220px] space-y-6 flex flex-col h-[calc(100vh-8rem)]">
       {/* Network Relationship Section - Now First */}
       <div className="space-y-6 flex-grow flex flex-col">
         {customer.networkRelationships && customer.networkRelationships.length > 0 && (
