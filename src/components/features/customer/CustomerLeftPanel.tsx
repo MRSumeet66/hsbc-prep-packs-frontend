@@ -77,7 +77,8 @@ export const CustomerLeftPanel: React.FC<CustomerLeftPanelProps> = ({ customer }
                   {customer.inhibits.map((inhibit, idx) => (
                     <div key={idx} className="p-3 rounded-md bg-muted/50 border border-border/40 text-sm">
                       <div className="font-medium mb-1">{inhibit.type}</div>
-                      <div className="text-muted-foreground">{inhibit.description}</div>
+                      <div className="text-muted-foreground mb-1">{inhibit.description}</div>
+                      <div className="text-xs text-muted-foreground">{inhibit.date}</div>
                     </div>
                   ))}
                 </div>

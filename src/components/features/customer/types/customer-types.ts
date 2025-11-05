@@ -67,6 +67,7 @@ export interface Transaction {
 export interface Inhibit {
   type: string;
   description: string;
+  date: string;
 }
 
 export interface CustomerData {

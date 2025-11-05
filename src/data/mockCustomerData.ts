@@ -16,15 +16,18 @@ export const getMockCustomerData = (customerId: string): CustomerData => {
       inhibits: [
         {
           type: 'ACH Debit Block',
-          description: 'All incoming ACH debits.'
+          description: 'All incoming ACH debits.',
+          date: 'Jan 15, 2024'
         },
         {
           type: 'ACH Debit Filter',
-          description: 'ACH debits from unapproved companies.'
+          description: 'ACH debits from unapproved companies.',
+          date: 'Feb 22, 2024'
         },
         {
           type: 'Check Positive Pay',
-          description: 'Fraudulent checks (wrong amount, not issued).'
+          description: 'Fraudulent checks (wrong amount, not issued).',
+          date: 'Mar 10, 2024'
         }
       ],
       description: 'Acme Corporation is a mid-sized manufacturing company with a strong focus on sustainable practices. They have been an HSBC customer since 2019 and utilize multiple banking services including commercial accounts, international payments, and trade finance solutions.',
