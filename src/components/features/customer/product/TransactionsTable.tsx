@@ -56,7 +56,9 @@ export const TransactionsTable: React.FC<TransactionsTableProps> = ({ customer }
   return (
     <Card className="animate-in border-none shadow-md bg-white rounded-xl h-full" style={{ animationDelay: '700ms' }}>
       <CardHeader className="border-b border-gray-100 bg-white pb-3">
-        <CardTitle className="text-lg font-semibold text-gray-800">Transaction Volume Summary (Rolling 12 months)</CardTitle>
+        <CardTitle className="text-lg font-semibold text-gray-800">
+          Transaction Volume Summary <span className="text-sm font-normal text-muted-foreground">(Rolling 12 months)</span>
+        </CardTitle>
       </CardHeader>
       <CardContent className="pt-4 flex-grow overflow-auto">
         <Table>
