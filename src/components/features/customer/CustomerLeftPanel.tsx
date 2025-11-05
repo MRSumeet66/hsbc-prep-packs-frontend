@@ -136,7 +136,7 @@ export const CustomerLeftPanel: React.FC<CustomerLeftPanelProps> = ({ customer }
                   {customer.surveys
                     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
                     .map((survey, idx) => (
-                      <div key={idx} className="p-3 rounded-md border border-border/40 text-sm">
+                      <div key={idx} className="p-3 rounded-md bg-muted/50 border border-border/40 text-sm">
                         <div className="flex justify-between items-center">
                           <span className="text-xs text-muted-foreground">{survey.date}</span>
                           <div className="flex items-center gap-1">
