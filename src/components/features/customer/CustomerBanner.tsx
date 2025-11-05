@@ -4,6 +4,7 @@ import { Mail, Phone, ScrollText, Users, MessageSquare } from 'lucide-react';
 import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover';
 import { CustomerKeyContacts } from './CustomerKeyContacts';
 import { RefreshButton } from './RefreshButton';
+import { Card, CardContent } from '@/components/ui/card';
 
 interface CustomerBannerProps {
   customer: CustomerData;
@@ -35,30 +36,48 @@ export const CustomerBanner: React.FC<CustomerBannerProps> = ({
         <div className="flex-1">
           <h1 className="text-2xl font-semibold mb-3">{customer.name} Summary</h1>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-            <div className="bg-background/80 border border-border/40 rounded-lg p-3">
-              <div className="text-xs text-muted-foreground mb-1">Business Type</div>
-              <div className="font-medium text-sm">{customer.businessType}</div>
-            </div>
-            <div className="bg-background/80 border border-border/40 rounded-lg p-3">
-              <div className="text-xs text-muted-foreground mb-1">Client Since</div>
-              <div className="font-medium text-sm">{clientSinceDate}</div>
-            </div>
-            <div className="bg-background/80 border border-border/40 rounded-lg p-3">
-              <div className="text-xs text-muted-foreground mb-1">Customer Type</div>
-              <div className="font-medium text-sm">{customer.customerType || 'N/A'}</div>
-            </div>
-            <div className="bg-background/80 border border-border/40 rounded-lg p-3">
-              <div className="text-xs text-muted-foreground mb-1">Vulnerability / CCN</div>
-              <div className="font-medium text-sm">{customer.vulnerability || 'None'}</div>
-            </div>
-            <div className="bg-background/80 border border-border/40 rounded-lg p-3">
-              <div className="text-xs text-muted-foreground mb-1">BIB Status</div>
-              <div className="font-medium text-sm">{customer.bibStatus || 'N/A'}</div>
-            </div>
-            <div className="bg-background/80 border border-border/40 rounded-lg p-3">
-              <div className="text-xs text-muted-foreground mb-1">Dormancy</div>
-              <div className="font-medium text-sm">{customer.dormancy || 'N/A'}</div>
-            </div>
+            <Card className="animate-in border-none shadow-md bg-white rounded-xl overflow-hidden">
+              <div className="h-1.5 bg-[#EE3524] w-full"></div>
+              <CardContent className="p-4">
+                <div className="text-xs uppercase font-medium text-muted-foreground mb-1">Business Type</div>
+                <div className="text-xl font-bold">{customer.businessType}</div>
+              </CardContent>
+            </Card>
+            <Card className="animate-in border-none shadow-md bg-white rounded-xl overflow-hidden">
+              <div className="h-1.5 bg-[#EE3524] w-full"></div>
+              <CardContent className="p-4">
+                <div className="text-xs uppercase font-medium text-muted-foreground mb-1">Client Since</div>
+                <div className="text-xl font-bold">{clientSinceDate}</div>
+              </CardContent>
+            </Card>
+            <Card className="animate-in border-none shadow-md bg-white rounded-xl overflow-hidden">
+              <div className="h-1.5 bg-[#EE3524] w-full"></div>
+              <CardContent className="p-4">
+                <div className="text-xs uppercase font-medium text-muted-foreground mb-1">Customer Type</div>
+                <div className="text-xl font-bold">{customer.customerType || 'N/A'}</div>
+              </CardContent>
+            </Card>
+            <Card className="animate-in border-none shadow-md bg-white rounded-xl overflow-hidden">
+              <div className="h-1.5 bg-[#EE3524] w-full"></div>
+              <CardContent className="p-4">
+                <div className="text-xs uppercase font-medium text-muted-foreground mb-1">Vulnerability / CCN</div>
+                <div className="text-xl font-bold">{customer.vulnerability || 'None'}</div>
+              </CardContent>
+            </Card>
+            <Card className="animate-in border-none shadow-md bg-white rounded-xl overflow-hidden">
+              <div className="h-1.5 bg-[#EE3524] w-full"></div>
+              <CardContent className="p-4">
+                <div className="text-xs uppercase font-medium text-muted-foreground mb-1">BIB Status</div>
+                <div className="text-xl font-bold">{customer.bibStatus || 'N/A'}</div>
+              </CardContent>
+            </Card>
+            <Card className="animate-in border-none shadow-md bg-white rounded-xl overflow-hidden">
+              <div className="h-1.5 bg-[#EE3524] w-full"></div>
+              <CardContent className="p-4">
+                <div className="text-xs uppercase font-medium text-muted-foreground mb-1">Dormancy</div>
+                <div className="text-xl font-bold">{customer.dormancy || 'N/A'}</div>
+              </CardContent>
+            </Card>
           </div>
         </div>
         <div className="flex space-x-2 ml-4">
