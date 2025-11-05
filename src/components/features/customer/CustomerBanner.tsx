@@ -37,42 +37,36 @@ export const CustomerBanner: React.FC<CustomerBannerProps> = ({
           <h1 className="text-2xl font-semibold mb-3">{customer.name} Summary</h1>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
             <Card className="animate-in border-none shadow-md bg-white rounded-xl overflow-hidden">
-              <div className="h-1 bg-[#EE3524] w-full"></div>
               <CardContent className="p-2">
                 <div className="text-[10px] uppercase font-medium text-muted-foreground mb-0.5">Business Type</div>
                 <div className="text-sm font-bold">{customer.businessType}</div>
               </CardContent>
             </Card>
             <Card className="animate-in border-none shadow-md bg-white rounded-xl overflow-hidden">
-              <div className="h-1 bg-[#EE3524] w-full"></div>
               <CardContent className="p-2">
                 <div className="text-[10px] uppercase font-medium text-muted-foreground mb-0.5">Client Since</div>
                 <div className="text-sm font-bold">{clientSinceDate}</div>
               </CardContent>
             </Card>
             <Card className="animate-in border-none shadow-md bg-white rounded-xl overflow-hidden">
-              <div className="h-1 bg-[#EE3524] w-full"></div>
               <CardContent className="p-2">
                 <div className="text-[10px] uppercase font-medium text-muted-foreground mb-0.5">Customer Type</div>
                 <div className="text-sm font-bold">{customer.customerType || 'N/A'}</div>
               </CardContent>
             </Card>
             <Card className="animate-in border-none shadow-md bg-white rounded-xl overflow-hidden">
-              <div className="h-1 bg-[#EE3524] w-full"></div>
               <CardContent className="p-2">
                 <div className="text-[10px] uppercase font-medium text-muted-foreground mb-0.5">Vulnerability / CCN</div>
                 <div className="text-sm font-bold">{customer.vulnerability || 'None'}</div>
               </CardContent>
             </Card>
             <Card className="animate-in border-none shadow-md bg-white rounded-xl overflow-hidden">
-              <div className="h-1 bg-[#EE3524] w-full"></div>
               <CardContent className="p-2">
                 <div className="text-[10px] uppercase font-medium text-muted-foreground mb-0.5">BIB Status</div>
                 <div className="text-sm font-bold">{customer.bibStatus || 'N/A'}</div>
               </CardContent>
             </Card>
             <Card className="animate-in border-none shadow-md bg-white rounded-xl overflow-hidden">
-              <div className="h-1 bg-[#EE3524] w-full"></div>
               <CardContent className="p-2">
                 <div className="text-[10px] uppercase font-medium text-muted-foreground mb-0.5">Dormancy</div>
                 <div className="text-sm font-bold">{customer.dormancy || 'N/A'}</div>
