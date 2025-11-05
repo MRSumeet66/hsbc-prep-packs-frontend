@@ -195,24 +195,6 @@ export const getMockCustomerData = (customerId: string): CustomerData => {
         },
         {
           id: '5',
-          title: 'Filed complaint about online banking platform',
-          date: 'Sep 2023',
-          type: 'complaint' as const,
-          subtitle: 'Issues with online banking platform accessibility',
-          status: 'completed' as const,
-          time: '10:45'
-        },
-        {
-          id: '6',
-          title: 'Filed complaint about foreign exchange fees',
-          date: 'Mar 2024',
-          type: 'complaint' as const,
-          subtitle: 'Dispute regarding foreign exchange fees',
-          status: 'current' as const,
-          time: '11:30'
-        },
-        { 
-          id: '7', 
           title: 'Closed commercial card account', 
           date: 'Apr 2024', 
           type: 'closure' as const,
