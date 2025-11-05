@@ -184,15 +184,6 @@ export const getMockCustomerData = (customerId: string): CustomerData => {
           status: 'completed' as const,
           time: '11:45'
         },
-        { 
-          id: '4', 
-          title: 'Filed complaint about international payment delays', 
-          date: 'Feb 2023', 
-          type: 'complaint' as const,
-          subtitle: 'Delays in international payment processing',
-          status: 'completed' as const,
-          time: '16:20'
-        },
         {
           id: '5',
           title: 'Closed commercial card account', 
