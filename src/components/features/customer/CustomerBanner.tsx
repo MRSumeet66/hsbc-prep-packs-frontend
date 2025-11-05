@@ -32,7 +32,7 @@ export const CustomerBanner: React.FC<CustomerBannerProps> = ({
 
   return (
     <div className="w-full bg-gradient-to-r from-background to-muted/30 border-b border-border/40 py-4 px-6">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-start">
         <div className="flex-1">
           <h1 className="text-2xl font-semibold mb-3">{customer.name} Summary</h1>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
@@ -74,7 +74,7 @@ export const CustomerBanner: React.FC<CustomerBannerProps> = ({
             </Card>
           </div>
         </div>
-        <div className="flex items-center justify-center space-x-2 ml-4">
+        <div className="flex items-center justify-center space-x-2 ml-4 mt-9">
           <RefreshButton 
             isGenerating={isGenerating} 
             onRefresh={onRefresh} 
