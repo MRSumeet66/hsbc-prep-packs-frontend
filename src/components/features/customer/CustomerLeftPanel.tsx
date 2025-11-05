@@ -68,10 +68,14 @@ export const CustomerLeftPanel: React.FC<CustomerLeftPanelProps> = ({ customer }
         {/* Inhibits Section */}
         {customer.inhibits && (
           <Card className="border-border/60">
-            <div className="p-4">
-              <h3 className="font-medium mb-3">Inhibits</h3>
-              <p className="text-sm text-muted-foreground">{customer.inhibits}</p>
-            </div>
+            <CardHeader className="pb-3">
+              <CardTitle className="text-lg font-medium">Inhibits</CardTitle>
+            </CardHeader>
+            <CardContent className="p-0">
+              <div className="p-6 pt-0">
+                <p className="text-sm text-muted-foreground">{customer.inhibits}</p>
+              </div>
+            </CardContent>
           </Card>
         )}
         
