@@ -5,6 +5,7 @@ import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover
 import { CustomerKeyContacts } from './CustomerKeyContacts';
 import { RefreshButton } from './RefreshButton';
 import { Card, CardContent } from '@/components/ui/card';
+import { format } from 'date-fns';
 
 interface CustomerBannerProps {
   customer: CustomerData;
@@ -26,9 +27,13 @@ export const CustomerBanner: React.FC<CustomerBannerProps> = ({
     }
   };
 
-  const clientSinceDate = customer.products.sort((a, b) => 
+  const earliestProduct = customer.products.sort((a, b) => 
     new Date(a.onboardDate).getTime() - new Date(b.onboardDate).getTime()
-  )[0]?.onboardDate.split(' ')[0];
+  )[0];
+  
+  const clientSinceDate = earliestProduct 
+    ? format(new Date(earliestProduct.onboardDate), 'MMMM yyyy')
+    : 'N/A';
 
   return (
     <div className="w-full bg-gradient-to-r from-background to-muted/30 border-b border-border/40 py-4 px-6">
