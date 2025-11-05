@@ -95,29 +95,33 @@ export const CustomerLeftPanel: React.FC<CustomerLeftPanelProps> = ({ customer }
         {/* Complaints Section */}
         {customer.complaints.length > 0 && (
           <Card className="border-border/60 flex-grow">
-            <div className="p-4 h-full flex flex-col">
-              <h3 className="font-medium mb-3">Complaints</h3>
-              <div className="space-y-3 flex-grow overflow-y-auto pr-1">
-                {customer.complaints
-                  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-                  .map((complaint) => (
-                    <div key={complaint.id} className="p-3 rounded-md bg-muted/50 border border-border/40 text-sm">
-                      <div className="flex justify-between">
-                        <span className="text-xs font-medium">{complaint.date}</span>
-                        <span className={`text-xs px-1.5 py-0.5 rounded ${complaint.status === 'resolved' ? 'bg-green-100 text-green-800' : 'bg-amber-100 text-amber-800'}`}>
-                          {complaint.status}
-                        </span>
-                      </div>
-                      <p className="mt-1">{complaint.issue}</p>
-                      {complaint.resolution && (
-                        <div className="mt-1 pt-1 border-t border-border/30 text-xs text-muted-foreground">
-                          <span className="font-medium">Resolution:</span> {complaint.resolution}
+            <CardHeader className="pb-3">
+              <CardTitle className="text-lg font-medium">Complaints</CardTitle>
+            </CardHeader>
+            <CardContent className="p-0">
+              <ScrollArea className="h-[300px] pr-4">
+                <div className="p-6 pt-0 space-y-3">
+                  {customer.complaints
+                    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+                    .map((complaint) => (
+                      <div key={complaint.id} className="p-3 rounded-md bg-muted/50 border border-border/40 text-sm">
+                        <div className="flex justify-between">
+                          <span className="text-xs font-medium">{complaint.date}</span>
+                          <span className={`text-xs px-1.5 py-0.5 rounded ${complaint.status === 'resolved' ? 'bg-green-100 text-green-800' : 'bg-amber-100 text-amber-800'}`}>
+                            {complaint.status}
+                          </span>
                         </div>
-                      )}
-                    </div>
-                  ))}
-              </div>
-            </div>
+                        <p className="mt-1">{complaint.issue}</p>
+                        {complaint.resolution && (
+                          <div className="mt-1 pt-1 border-t border-border/30 text-xs text-muted-foreground">
+                            <span className="font-medium">Resolution:</span> {complaint.resolution}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                </div>
+              </ScrollArea>
+            </CardContent>
           </Card>
         )}
         
