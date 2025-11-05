@@ -116,8 +116,14 @@ export const getMockCustomerData = (customerId: string): CustomerData => {
         {
           cin: '1047382956',
           parent: 'Acme Corporation PLC',
-          mg: '1025',
-          linkedBusinesses: 'Acme Manufacturing Ltd, Acme Distribution Inc'
+          mgName: 'Acme Group',
+          mgId: '1025',
+          linkedBusinesses: [
+            'Acme Manufacturing Ltd',
+            'Acme Distribution Inc',
+            'Acme Holdings Group',
+            'Acme Transportation Ltd'
+          ]
         }
       ],
       productRevenue: [

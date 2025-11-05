@@ -30,8 +30,9 @@ export interface Survey {
 export interface NetworkRelationship {
   cin: string;
   parent: string;
-  mg: string;
-  linkedBusinesses: string;
+  mgName: string;
+  mgId: string;
+  linkedBusinesses: string[];
 }
 
 export interface TimelineEvent {
