@@ -199,7 +199,7 @@ export const getMockCustomerData = (customerId: string): CustomerData => {
           date: 'Apr 2024', 
           type: 'closure' as const,
           subtitle: 'Card account terminated by customer request',
-          status: 'current' as const,
+          status: 'open' as const,
           time: '10:05'
         },
       ],

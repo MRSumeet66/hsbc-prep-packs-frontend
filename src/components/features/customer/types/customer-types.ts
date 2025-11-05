@@ -41,7 +41,7 @@ export interface TimelineEvent {
   date: string;
   type: 'onboard' | 'account' | 'product' | 'complaint' | 'survey' | 'closure';
   subtitle?: string;
-  status?: 'completed' | 'current' | 'pending';
+  status?: 'completed' | 'open' | 'pending';
   time?: string;
 }
 

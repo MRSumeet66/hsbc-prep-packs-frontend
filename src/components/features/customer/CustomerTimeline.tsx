@@ -9,7 +9,7 @@ export interface TimelineEvent {
   date: string;
   type: 'onboard' | 'account' | 'product' | 'complaint' | 'survey' | 'closure';
   subtitle?: string;
-  status?: 'completed' | 'current' | 'pending';
+  status?: 'completed' | 'open' | 'pending';
   time?: string;
 }
 
@@ -29,7 +29,7 @@ const CustomerTimeline: React.FC<CustomerTimelineProps> = ({ events }) => {
   // Add status to events if not provided - default to completed for past events
   const eventsWithStatus = sortedEvents.map((event, index) => ({
     ...event,
-    status: event.status || (index === 0 ? 'current' : 'completed'),
+    status: event.status || (index === 0 ? 'open' : 'completed'),
     time: event.time || '00:00'
   }));
 
@@ -45,7 +45,7 @@ const CustomerTimeline: React.FC<CustomerTimelineProps> = ({ events }) => {
     switch (status) {
       case 'completed':
         return 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400';
-      case 'current':
+      case 'open':
         return 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400';
       case 'pending':
         return 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400';
