@@ -21,7 +21,7 @@ export const CustomerLeftPanel: React.FC<CustomerLeftPanelProps> = ({ customer }
               <CardTitle className="text-lg font-medium">Network Relationship</CardTitle>
             </CardHeader>
             <CardContent className="p-0">
-              <ScrollArea className="h-[240px] pr-4">
+              <ScrollArea className="h-[300px] pr-4">
                 <div className="p-6 pt-0 space-y-4">
                   {customer.networkRelationships.map((relationship, idx) => (
                     <div key={idx} className="space-y-4">
