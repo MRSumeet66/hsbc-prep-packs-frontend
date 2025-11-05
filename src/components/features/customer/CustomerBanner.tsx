@@ -34,27 +34,30 @@ export const CustomerBanner: React.FC<CustomerBannerProps> = ({
       <div className="flex justify-between items-center">
         <div className="flex-1">
           <h1 className="text-2xl font-semibold mb-3">{customer.name} Summary</h1>
-          <div className="flex flex-wrap gap-4">
-            <div className="text-sm">
-              <span className="text-muted-foreground">{customer.businessType} • Client since {clientSinceDate}</span>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+            <div className="bg-background/80 border border-border/40 rounded-lg p-3">
+              <div className="text-xs text-muted-foreground mb-1">Business Type</div>
+              <div className="font-medium text-sm">{customer.businessType}</div>
             </div>
-            <div className="flex gap-4 text-sm">
-              <div>
-                <span className="text-muted-foreground">Customer Type: </span>
-                <span className="font-medium">{customer.customerType || 'N/A'}</span>
-              </div>
-              <div>
-                <span className="text-muted-foreground">Vulnerability / CCN: </span>
-                <span className="font-medium">{customer.vulnerability || 'None'}</span>
-              </div>
-              <div>
-                <span className="text-muted-foreground">BIB Status: </span>
-                <span className="font-medium">{customer.bibStatus || 'N/A'}</span>
-              </div>
-              <div>
-                <span className="text-muted-foreground">Dormancy: </span>
-                <span className="font-medium">{customer.dormancy || 'N/A'}</span>
-              </div>
+            <div className="bg-background/80 border border-border/40 rounded-lg p-3">
+              <div className="text-xs text-muted-foreground mb-1">Client Since</div>
+              <div className="font-medium text-sm">{clientSinceDate}</div>
+            </div>
+            <div className="bg-background/80 border border-border/40 rounded-lg p-3">
+              <div className="text-xs text-muted-foreground mb-1">Customer Type</div>
+              <div className="font-medium text-sm">{customer.customerType || 'N/A'}</div>
+            </div>
+            <div className="bg-background/80 border border-border/40 rounded-lg p-3">
+              <div className="text-xs text-muted-foreground mb-1">Vulnerability / CCN</div>
+              <div className="font-medium text-sm">{customer.vulnerability || 'None'}</div>
+            </div>
+            <div className="bg-background/80 border border-border/40 rounded-lg p-3">
+              <div className="text-xs text-muted-foreground mb-1">BIB Status</div>
+              <div className="font-medium text-sm">{customer.bibStatus || 'N/A'}</div>
+            </div>
+            <div className="bg-background/80 border border-border/40 rounded-lg p-3">
+              <div className="text-xs text-muted-foreground mb-1">Dormancy</div>
+              <div className="font-medium text-sm">{customer.dormancy || 'N/A'}</div>
             </div>
           </div>
         </div>
