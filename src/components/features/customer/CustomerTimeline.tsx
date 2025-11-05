@@ -2,7 +2,6 @@
 import React from 'react';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 
 export interface TimelineEvent {
   id: string;
@@ -42,16 +41,16 @@ const CustomerTimeline: React.FC<CustomerTimelineProps> = ({ events }) => {
     return `${month} ${year.slice(-2)}`;
   };
 
-  const getStatusVariant = (status: string) => {
+  const getStatusColor = (status: string) => {
     switch (status) {
       case 'completed':
-        return 'default';
+        return 'bg-green-100 text-green-800';
       case 'current':
-        return 'secondary';
+        return 'bg-blue-100 text-blue-800';
       case 'pending':
-        return 'outline';
+        return 'bg-amber-100 text-amber-800';
       default:
-        return 'default';
+        return 'bg-green-100 text-green-800';
     }
   };
 
@@ -78,9 +77,9 @@ const CustomerTimeline: React.FC<CustomerTimelineProps> = ({ events }) => {
                       {formatDate(event.date)} • {event.time}
                     </div>
                   </div>
-                  <Badge variant={getStatusVariant(event.status || 'completed')} className="capitalize shrink-0">
+                  <span className={`text-xs px-1.5 py-0.5 rounded capitalize shrink-0 ${getStatusColor(event.status || 'completed')}`}>
                     {event.status || 'completed'}
-                  </Badge>
+                  </span>
                 </div>
               </div>
             ))}
