@@ -60,7 +60,7 @@ const CustomerTimeline: React.FC<CustomerTimelineProps> = ({ events }) => {
         <CardTitle className="text-lg font-medium">Journeys</CardTitle>
       </CardHeader>
       <CardContent className="p-0">
-        <ScrollArea className="h-[300px] pr-4">
+        <ScrollArea className="h-[200px] pr-4">
           <div className="p-6 pt-0 space-y-3">
             {eventsWithStatus.map((event) => (
               <div 

@@ -99,7 +99,7 @@ export const CustomerLeftPanel: React.FC<CustomerLeftPanelProps> = ({ customer }
               <CardTitle className="text-lg font-medium">Complaints</CardTitle>
             </CardHeader>
             <CardContent className="p-0">
-              <ScrollArea className="h-[300px] pr-4">
+              <ScrollArea className="h-[200px] pr-4">
                 <div className="p-6 pt-0 space-y-3">
                   {customer.complaints
                     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
@@ -131,7 +131,7 @@ export const CustomerLeftPanel: React.FC<CustomerLeftPanelProps> = ({ customer }
               <CardTitle className="text-lg font-medium">ICS Results</CardTitle>
             </CardHeader>
             <CardContent className="p-0">
-              <ScrollArea className="h-[300px] pr-4">
+              <ScrollArea className="h-[200px] pr-4">
                 <div className="p-6 pt-0 space-y-3">
                   {customer.surveys
                     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
