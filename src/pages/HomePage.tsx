@@ -121,19 +121,8 @@ export const HomePage = () => {
                       key={item.id} 
                       className="p-3 border border-border/50 rounded-lg bg-background/80 hover:bg-background transition-colors"
                     >
-                      <div className="flex justify-between items-start mb-1">
+                      <div className="mb-1">
                         <h4 className="font-medium text-sm">{item.title}</h4>
-                        <Badge 
-                          variant={
-                            item.type === 'success' ? 'default' : 
-                            item.type === 'warning' ? 'secondary' : 
-                            item.type === 'risk' ? 'destructive' : 
-                            'outline'
-                          }
-                          className="text-[10px]"
-                        >
-                          {item.type}
-                        </Badge>
                       </div>
                       <p className="text-xs text-muted-foreground mb-2">{item.description}</p>
                       <div className="text-xs flex items-center gap-1 text-muted-foreground">
