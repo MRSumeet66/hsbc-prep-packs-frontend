@@ -29,19 +29,19 @@ export const CustomerLeftPanel: React.FC<CustomerLeftPanelProps> = ({ customer }
                       <div className="p-3 rounded-md bg-muted/50 border border-border/40 text-sm space-y-2">
                         <div className="flex">
                           <span className="font-medium text-muted-foreground min-w-[80px]">CIN:</span>
-                          <span>{relationship.cin}</span>
+                          <span className="font-medium">{relationship.cin}</span>
                         </div>
                         <div className="flex">
                           <span className="font-medium text-muted-foreground min-w-[80px]">Parent:</span>
-                          <span>{relationship.parent}</span>
+                          <span className="font-medium">{relationship.parent}</span>
                         </div>
                         <div className="flex">
                           <span className="font-medium text-muted-foreground min-w-[80px]">MG Name:</span>
-                          <span>{relationship.mgName}</span>
+                          <span className="font-medium">{relationship.mgName}</span>
                         </div>
                         <div className="flex">
                           <span className="font-medium text-muted-foreground min-w-[80px]">MG ID:</span>
-                          <span>{relationship.mgId}</span>
+                          <span className="font-medium">{relationship.mgId}</span>
                         </div>
                       </div>
 
