@@ -64,6 +64,11 @@ export interface Transaction {
   status: 'completed' | 'pending' | 'failed';
 }
 
+export interface Inhibit {
+  type: string;
+  description: string;
+}
+
 export interface CustomerData {
   id: string;
   name: string;
@@ -89,5 +94,5 @@ export interface CustomerData {
   vulnerability?: string;
   bibStatus?: string;
   dormancy?: string;
-  inhibits?: string;
+  inhibits?: Inhibit[];
 }

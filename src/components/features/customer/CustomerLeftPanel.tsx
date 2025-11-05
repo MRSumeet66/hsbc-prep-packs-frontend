@@ -66,15 +66,22 @@ export const CustomerLeftPanel: React.FC<CustomerLeftPanelProps> = ({ customer }
         )}
         
         {/* Inhibits Section */}
-        {customer.inhibits && (
+        {customer.inhibits && customer.inhibits.length > 0 && (
           <Card className="border-border/60">
             <CardHeader className="pb-3">
               <CardTitle className="text-lg font-medium">Inhibits</CardTitle>
             </CardHeader>
             <CardContent className="p-0">
-              <div className="p-6 pt-0">
-                <p className="text-sm text-muted-foreground">{customer.inhibits}</p>
-              </div>
+              <ScrollArea className="h-[200px] pr-4">
+                <div className="p-6 pt-0 space-y-3">
+                  {customer.inhibits.map((inhibit, idx) => (
+                    <div key={idx} className="p-3 rounded-md bg-muted/50 border border-border/40 text-sm">
+                      <div className="font-medium mb-1">{inhibit.type}</div>
+                      <div className="text-muted-foreground">{inhibit.description}</div>
+                    </div>
+                  ))}
+                </div>
+              </ScrollArea>
             </CardContent>
           </Card>
         )}

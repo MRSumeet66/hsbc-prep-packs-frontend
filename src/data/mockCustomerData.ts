@@ -13,7 +13,20 @@ export const getMockCustomerData = (customerId: string): CustomerData => {
       vulnerability: 'Bereavement',
       bibStatus: 'Yes',
       dormancy: 'No',
-      inhibits: "Customer can't make payment of more than £5,000",
+      inhibits: [
+        {
+          type: 'ACH Debit Block',
+          description: 'All incoming ACH debits.'
+        },
+        {
+          type: 'ACH Debit Filter',
+          description: 'ACH debits from unapproved companies.'
+        },
+        {
+          type: 'Check Positive Pay',
+          description: 'Fraudulent checks (wrong amount, not issued).'
+        }
+      ],
       description: 'Acme Corporation is a mid-sized manufacturing company with a strong focus on sustainable practices. They have been an HSBC customer since 2019 and utilize multiple banking services including commercial accounts, international payments, and trade finance solutions.',
       keyContacts: [
         {
