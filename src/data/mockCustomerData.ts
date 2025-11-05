@@ -119,10 +119,10 @@ export const getMockCustomerData = (customerId: string): CustomerData => {
           mgName: 'Acme Group',
           mgId: '1025',
           linkedBusinesses: [
-            'Acme Manufacturing Ltd',
-            'Acme Distribution Inc',
-            'Acme Holdings Group',
-            'Acme Transportation Ltd'
+            { name: 'Acme Manufacturing Ltd', cin: '1023456789' },
+            { name: 'Acme Distribution Inc', cin: '1034567890' },
+            { name: 'Acme Holdings Group', cin: '1045678901' },
+            { name: 'Acme Transportation Ltd', cin: '1056789012' }
           ]
         }
       ],

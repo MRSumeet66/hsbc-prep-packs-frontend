@@ -32,7 +32,7 @@ export interface NetworkRelationship {
   parent: string;
   mgName: string;
   mgId: string;
-  linkedBusinesses: string[];
+  linkedBusinesses: Array<{ name: string; cin: string }>;
 }
 
 export interface TimelineEvent {
