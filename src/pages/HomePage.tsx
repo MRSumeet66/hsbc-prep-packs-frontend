@@ -109,7 +109,7 @@ export const HomePage = () => {
             <CardHeader className="pb-2">
               <CardTitle className="text-lg flex items-center gap-2">
                 <Bell className="h-4 w-4" />
-                Recent Activity
+                Recently Viewed Companies
                 <span className="text-xs text-muted-foreground font-normal ml-2">(14 days ago)</span>
               </CardTitle>
             </CardHeader>
