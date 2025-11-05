@@ -127,26 +127,30 @@ export const CustomerLeftPanel: React.FC<CustomerLeftPanelProps> = ({ customer }
         
         {customer.surveys.length > 0 && (
           <Card className="border-border/60 flex-grow">
-            <div className="p-4 h-full flex flex-col">
-              <h3 className="font-medium mb-3">ICS Results</h3>
-              <div className="space-y-3 flex-grow overflow-y-auto pr-1">
-                {customer.surveys
-                  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-                  .map((survey, idx) => (
-                    <div key={idx} className="p-3 rounded-md border border-border/40 text-sm">
-                      <div className="flex justify-between items-center">
-                        <span className="text-xs text-muted-foreground">{survey.date}</span>
-                        <div className="flex items-center gap-1">
-                          <span className={`text-xs px-1.5 py-0.5 rounded ${survey.score >= 7 ? 'bg-emerald-100 text-emerald-800' : 'bg-red-100 text-red-800'}`}>
-                            {survey.score}/10
-                          </span>
+            <CardHeader className="pb-3">
+              <CardTitle className="text-lg font-medium">ICS Results</CardTitle>
+            </CardHeader>
+            <CardContent className="p-0">
+              <ScrollArea className="h-[300px] pr-4">
+                <div className="p-6 pt-0 space-y-3">
+                  {customer.surveys
+                    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+                    .map((survey, idx) => (
+                      <div key={idx} className="p-3 rounded-md border border-border/40 text-sm">
+                        <div className="flex justify-between items-center">
+                          <span className="text-xs text-muted-foreground">{survey.date}</span>
+                          <div className="flex items-center gap-1">
+                            <span className={`text-xs px-1.5 py-0.5 rounded ${survey.score >= 7 ? 'bg-emerald-100 text-emerald-800' : 'bg-red-100 text-red-800'}`}>
+                              {survey.score}/10
+                            </span>
+                          </div>
                         </div>
+                        <p className="mt-1 text-xs italic">"{survey.feedback}"</p>
                       </div>
-                      <p className="mt-1 text-xs italic">"{survey.feedback}"</p>
-                    </div>
-                  ))}
-              </div>
-            </div>
+                    ))}
+                </div>
+              </ScrollArea>
+            </CardContent>
           </Card>
         )}
       </div>
