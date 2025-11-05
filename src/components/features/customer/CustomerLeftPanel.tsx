@@ -26,7 +26,7 @@ export const CustomerLeftPanel: React.FC<CustomerLeftPanelProps> = ({ customer }
                   {customer.networkRelationships.map((relationship, idx) => (
                     <div key={idx} className="space-y-4">
                       {/* Section 1: Company Details */}
-                      <div className="p-3 rounded-md border border-border/40 text-sm space-y-2">
+                      <div className="p-3 rounded-md bg-muted/50 border border-border/40 text-sm space-y-2">
                         <div className="flex">
                           <span className="font-medium text-muted-foreground min-w-[80px]">CIN:</span>
                           <span>{relationship.cin}</span>
