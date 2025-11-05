@@ -204,24 +204,6 @@ export const getMockCustomerData = (customerId: string): CustomerData => {
         },
         {
           id: '6',
-          title: 'Customer survey submitted - Score: 9/10',
-          date: 'Jan 2024',
-          type: 'survey' as const,
-          subtitle: 'Positive feedback on trade finance team',
-          status: 'completed' as const,
-          time: '14:25'
-        },
-        {
-          id: '7',
-          title: 'Customer survey submitted - Score: 7/10',
-          date: 'Mar 2024',
-          type: 'survey' as const,
-          subtitle: 'Requested more tailored industry solutions',
-          status: 'completed' as const,
-          time: '09:15'
-        },
-        {
-          id: '8',
           title: 'Filed complaint about foreign exchange fees',
           date: 'Mar 2024',
           type: 'complaint' as const,
@@ -230,7 +212,7 @@ export const getMockCustomerData = (customerId: string): CustomerData => {
           time: '11:30'
         },
         { 
-          id: '9', 
+          id: '7', 
           title: 'Closed commercial card account', 
           date: 'Apr 2024', 
           type: 'closure' as const,
