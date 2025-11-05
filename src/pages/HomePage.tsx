@@ -18,77 +18,77 @@ import {
 const newsItems = [
   {
     id: '1',
-    title: 'Acme Corporation Expands Operations',
+    title: 'Acme Corporation',
     timestamp: 'Today, 10:30 AM',
     type: 'success',
     description: 'Acme Corporation has announced plans to expand operations into new markets, with expected revenue growth of 15% next quarter.'
   },
   {
     id: '2',
-    title: 'Dynamic Solutions Ltd Complaint Filed',
+    title: 'Dynamic Solutions Ltd',
     timestamp: 'Yesterday, 3:45 PM',
     type: 'risk',
     description: 'A complaint has been filed against Dynamic Solutions Ltd regarding service delivery delays.'
   },
   {
     id: '3',
-    title: 'Green Energy Partners Risk Assessment Update',
+    title: 'Green Energy Partners',
     timestamp: '2 days ago',
     type: 'warning',
     description: 'Updated risk assessment for Green Energy Partners shows increased exposure in renewable energy sector.'
   },
   {
     id: '4',
-    title: 'Metro Hospitality Group Product Interest',
+    title: 'Metro Hospitality Group',
     timestamp: '3 days ago',
     type: 'info',
     description: 'Metro Hospitality Group has expressed interest in our new business banking product suite.'
   },
   {
     id: '5',
-    title: 'Patterson Healthcare Quarterly Review',
+    title: 'Patterson Healthcare',
     timestamp: 'Last week',
     type: 'success',
     description: 'Quarterly review completed for Patterson Healthcare shows strong financial performance and growth potential.'
   },
   {
     id: '6',
-    title: 'Global Logistics Ltd FX Volume Increase',
+    title: 'Global Logistics Ltd',
     timestamp: 'Last week',
     type: 'info',
     description: 'Global Logistics Ltd has increased their foreign exchange volume by 25% this quarter.'
   },
   {
     id: '7',
-    title: 'TechVision Innovations Expansion Plans',
+    title: 'TechVision Innovations',
     timestamp: '2 weeks ago',
     type: 'success',
     description: 'TechVision Innovations has shared plans to expand into Asian markets with our support.'
   },
   {
     id: '8',
-    title: 'Harrison Construction Funding Request',
+    title: 'Harrison Construction',
     timestamp: '2 weeks ago',
     type: 'info',
     description: 'Harrison Construction has requested additional project financing for their new commercial development.'
   },
   {
     id: '9',
-    title: 'Emerald Retail Group Payment Issue',
+    title: 'Emerald Retail Group',
     timestamp: '3 weeks ago',
     type: 'risk',
     description: 'Emerald Retail Group has reported ongoing issues with their payment processing system integration.'
   },
   {
     id: '10',
-    title: 'Heritage Foods Export Success',
+    title: 'Heritage Foods',
     timestamp: 'Last month',
     type: 'success',
     description: 'Heritage Foods has successfully entered three new export markets using our trade finance solutions.'
   },
   {
     id: '11',
-    title: 'Quantum Electronics Supply Chain Review',
+    title: 'Quantum Electronics',
     timestamp: 'Last month',
     type: 'warning',
     description: 'Quantum Electronics has requested a review of their global supply chain financing arrangements.'
