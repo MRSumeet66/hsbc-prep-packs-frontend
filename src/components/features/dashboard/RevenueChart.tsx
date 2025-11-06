@@ -5,9 +5,10 @@ import { TrendingUp } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { InternationalCustomersDialog } from './InternationalCustomersDialog';
+import { getAllCustomers } from '@/data/mockCustomerData';
 
-// UK Regions with mock revenue data
-const generateRegions = () => {
+// UK Companies with regions and revenue data
+const generateCompanies = () => {
   const regions = [
     'London',
     'South East',
@@ -23,13 +24,16 @@ const generateRegions = () => {
     'Northern Ireland'
   ];
   
-  return regions.map(name => ({
-    name,
-    revenue: Math.floor(Math.random() * 3000000) + 500000 // £500k to £3.5M per region
+  const baseCustomers = getAllCustomers();
+  
+  return baseCustomers.map(customer => ({
+    name: customer.name,
+    region: regions[Math.floor(Math.random() * regions.length)],
+    revenue: Math.floor(Math.random() * 3000000) + 500000 // £500k to £3.5M
   })).sort((a, b) => b.revenue - a.revenue);
 };
 
-const allRegions = generateRegions();
+const allCompanies = generateCompanies();
 
 export const RevenueChart = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -45,7 +49,7 @@ export const RevenueChart = () => {
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
-            {allRegions.slice(0, 3).map((region, index) => (
+            {allCompanies.slice(0, 3).map((company, index) => (
               <div 
                 key={index} 
                 className="flex justify-between items-center p-2 border border-border/50 rounded-lg hover:bg-muted/50 transition-colors"
@@ -53,23 +57,23 @@ export const RevenueChart = () => {
                 <div className="flex-1 min-w-0 mr-2">
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <p className="font-medium text-sm truncate">{region.name}</p>
+                      <p className="font-medium text-sm truncate">{company.name}</p>
                     </TooltipTrigger>
                     <TooltipContent>
-                      <p>{region.name}</p>
+                      <p>{company.name}</p>
                     </TooltipContent>
                   </Tooltip>
-                  <p className="text-xs text-muted-foreground">UK Region</p>
+                  <p className="text-xs text-muted-foreground">{company.region}</p>
                 </div>
                 <Badge className="bg-green-500/20 text-green-700 dark:text-green-400 flex-shrink-0">
-                  £{(region.revenue / 1000000).toFixed(2)}M
+                  £{(company.revenue / 1000000).toFixed(2)}M
                 </Badge>
               </div>
             ))}
           </div>
           
           <Button variant="outline" className="w-full mt-4" onClick={() => setDialogOpen(true)}>
-            View All Regions
+            View All Companies
           </Button>
         </CardContent>
       </Card>
@@ -77,7 +81,7 @@ export const RevenueChart = () => {
       <InternationalCustomersDialog
         open={dialogOpen}
         onOpenChange={setDialogOpen}
-        companies={allRegions}
+        companies={allCompanies}
       />
     </>
   );

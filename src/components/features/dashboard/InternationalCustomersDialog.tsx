@@ -12,6 +12,7 @@ import { ArrowUpDown } from 'lucide-react';
 
 interface Company {
   name: string;
+  region: string;
   revenue: number;
 }
 
@@ -50,7 +51,7 @@ export const InternationalCustomersDialog: React.FC<InternationalCustomersDialog
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-4xl max-h-[80vh]">
         <DialogHeader>
-          <DialogTitle>UK Regions by Revenue (Last 12 Months)</DialogTitle>
+          <DialogTitle>UK Companies by Revenue (Last 12 Months)</DialogTitle>
         </DialogHeader>
         <ScrollArea className="h-[60vh]">
           <Table>
@@ -59,9 +60,10 @@ export const InternationalCustomersDialog: React.FC<InternationalCustomersDialog
                 <TableHead>Rank</TableHead>
                 <TableHead className="cursor-pointer" onClick={() => toggleSort('name')}>
                   <div className="flex items-center gap-1">
-                    Region Name <ArrowUpDown className="h-3 w-3" />
+                    Company Name <ArrowUpDown className="h-3 w-3" />
                   </div>
                 </TableHead>
+                <TableHead>Region</TableHead>
                 <TableHead className="cursor-pointer" onClick={() => toggleSort('revenue')}>
                   <div className="flex items-center gap-1">
                     Revenue (12M) <ArrowUpDown className="h-3 w-3" />
@@ -74,6 +76,7 @@ export const InternationalCustomersDialog: React.FC<InternationalCustomersDialog
                 <TableRow key={index}>
                   <TableCell>{index + 1}</TableCell>
                   <TableCell className="font-medium">{company.name}</TableCell>
+                  <TableCell>{company.region}</TableCell>
                   <TableCell>
                     <Badge className={index < 10 ? "bg-green-500/20 text-green-700 dark:text-green-400" : ""}>
                       £{(company.revenue / 1000000).toFixed(2)}M
