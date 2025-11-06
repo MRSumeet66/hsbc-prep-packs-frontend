@@ -186,11 +186,11 @@ export const getMockCustomerData = (customerId: string): CustomerData => {
         },
         {
           id: '5',
-          title: 'Closed commercial card account', 
+          title: 'BIB Registration Request', 
           date: 'Apr 2024', 
-          type: 'closure' as const,
-          subtitle: 'Card account terminated by customer request',
-          status: 'open' as const,
+          type: 'product' as const,
+          subtitle: 'Request for Business Internet Banking Registration',
+          status: 'completed' as const,
           time: '10:05'
         },
       ],
