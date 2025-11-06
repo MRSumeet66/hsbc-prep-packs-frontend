@@ -37,7 +37,7 @@ const generateCustomers = (): Customer[] => {
     return {
       id: customer.id,
       name: customer.name,
-      npsScore: Math.floor(Math.random() * 40) + 1,
+      npsScore: Math.floor(Math.random() * 6) + 1,
       lastInteraction: date.toISOString().split('T')[0],
       note: notes[i % notes.length],
     };
