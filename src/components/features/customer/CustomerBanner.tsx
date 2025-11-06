@@ -44,37 +44,37 @@ export const CustomerBanner: React.FC<CustomerBannerProps> = ({
             <Card className="animate-in border-none shadow-md bg-white rounded-xl overflow-hidden">
               <CardContent className="p-2">
                 <div className="text-[10px] uppercase font-medium text-muted-foreground mb-0.5">Business Type</div>
-                <div className="text-sm font-bold">{customer.businessType}</div>
+                <div className="text-sm">{customer.businessType}</div>
               </CardContent>
             </Card>
             <Card className="animate-in border-none shadow-md bg-white rounded-xl overflow-hidden">
               <CardContent className="p-2">
                 <div className="text-[10px] uppercase font-medium text-muted-foreground mb-0.5">Client Since</div>
-                <div className="text-sm font-bold">{clientSinceDate}</div>
+                <div className="text-sm">{clientSinceDate}</div>
               </CardContent>
             </Card>
             <Card className="animate-in border-none shadow-md bg-white rounded-xl overflow-hidden">
               <CardContent className="p-2">
                 <div className="text-[10px] uppercase font-medium text-muted-foreground mb-0.5">Customer Type</div>
-                <div className="text-sm font-bold">{customer.customerType || 'N/A'}</div>
+                <div className="text-sm">{customer.customerType || 'N/A'}</div>
               </CardContent>
             </Card>
             <Card className="animate-in border-none shadow-md bg-white rounded-xl overflow-hidden">
               <CardContent className="p-2">
                 <div className="text-[10px] uppercase font-medium text-muted-foreground mb-0.5">Vulnerability / CCN</div>
-                <div className="text-sm font-bold">{customer.vulnerability || 'None'}</div>
+                <div className="text-sm">{customer.vulnerability || 'None'}</div>
               </CardContent>
             </Card>
             <Card className="animate-in border-none shadow-md bg-white rounded-xl overflow-hidden">
               <CardContent className="p-2">
                 <div className="text-[10px] uppercase font-medium text-muted-foreground mb-0.5">Digitally Active</div>
-                <div className="text-sm font-bold">{customer.bibStatus || 'N/A'}</div>
+                <div className="text-sm">{customer.bibStatus || 'N/A'}</div>
               </CardContent>
             </Card>
             <Card className="animate-in border-none shadow-md bg-white rounded-xl overflow-hidden">
               <CardContent className="p-2">
                 <div className="text-[10px] uppercase font-medium text-muted-foreground mb-0.5">Dormancy</div>
-                <div className="text-sm font-bold">{customer.dormancy || 'N/A'}</div>
+                <div className="text-sm">{customer.dormancy || 'N/A'}</div>
               </CardContent>
             </Card>
           </div>
