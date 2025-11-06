@@ -63,33 +63,35 @@ export const LendingPropensity = () => {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="space-y-3">
-          {customers.slice(0, 3).map((customer, index) => (
-            <div 
-              key={index} 
-              className="flex justify-between items-center p-2 border border-border/50 rounded-lg cursor-pointer hover:bg-muted/50 transition-colors"
-              onClick={() => navigate(`/customer/${customer.id}`)}
-            >
-              <div className="flex-1 min-w-0 mr-2">
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <p className="font-medium text-sm truncate">{customer.name}</p>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>{customer.name}</p>
-                  </TooltipContent>
-                </Tooltip>
-                <p className="text-xs text-muted-foreground">{customer.industry}</p>
+        <ScrollArea className="h-[240px]">
+          <div className="space-y-3 pr-4">
+            {customers.slice(0, 10).map((customer, index) => (
+              <div 
+                key={index} 
+                className="flex justify-between items-center p-2 border border-border/50 rounded-lg cursor-pointer hover:bg-muted/50 transition-colors"
+                onClick={() => navigate(`/customer/${customer.id}`)}
+              >
+                <div className="flex-1 min-w-0 mr-2">
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <p className="font-medium text-sm truncate">{customer.name}</p>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>{customer.name}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                  <p className="text-xs text-muted-foreground">{customer.industry}</p>
+                </div>
+                <div className="text-right flex-shrink-0">
+                  <Badge className={getScoreColor(customer.lendingScore)}>
+                    Score: {customer.lendingScore}
+                  </Badge>
+                  <p className="text-xs text-muted-foreground mt-1">£{(customer.loanInterest / 1000).toFixed(0)}k</p>
+                </div>
               </div>
-              <div className="text-right flex-shrink-0">
-                <Badge className={getScoreColor(customer.lendingScore)}>
-                  Score: {customer.lendingScore}
-                </Badge>
-                <p className="text-xs text-muted-foreground mt-1">£{(customer.loanInterest / 1000).toFixed(0)}k</p>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </ScrollArea>
         
         <Dialog>
           <DialogTrigger asChild>
