@@ -151,13 +151,13 @@ export const HomePage = () => {
           </div>
           
           <div className="mt-6">
-            <SearchBox value={searchQuery} onChange={setSearchQuery} />
+            {/* <SearchBox value={searchQuery} onChange={setSearchQuery} /> */}
             
             {/* Filters */}
             <div className="mt-4 flex flex-col md:flex-row gap-4">
               {/* Region Filter */}
-              <Select value={selectedRegion} onValueChange={setSelectedRegion}>
-                <SelectTrigger className="w-full md:w-44 h-12 border-2 bg-card/90 shadow-sm z-40">
+              {/* <Select value={selectedRegion} onValueChange={setSelectedRegion}> */}
+                {/* <SelectTrigger className="w-full md:w-44 h-12 border-2 bg-card/90 shadow-sm z-40">
                   <MapPin className="h-4 w-4 mr-1 text-muted-foreground" />
                   <SelectValue placeholder="Filter by region" />
                 </SelectTrigger>
@@ -176,10 +176,10 @@ export const HomePage = () => {
                   <SelectItem value="wales">Wales</SelectItem>
                   <SelectItem value="northern-ireland">Northern Ireland</SelectItem>
                 </SelectContent>
-              </Select>
+              </Select> */}
 
               {/* Sector Filter */}
-              <Select value={selectedSector} onValueChange={setSelectedSector}>
+              {/* <Select value={selectedSector} onValueChange={setSelectedSector}>
                 <SelectTrigger className="w-full md:w-44 h-12 border-2 bg-card/90 shadow-sm z-40">
                   <Building2 className="h-4 w-4 mr-1 text-muted-foreground" />
                   <SelectValue placeholder="Filter by sector" />
@@ -199,12 +199,25 @@ export const HomePage = () => {
                   <SelectItem value="real-estate">Real Estate</SelectItem>
                   <SelectItem value="professional-services">Professional Services</SelectItem>
                 </SelectContent>
-              </Select>
+              </Select> */}
             </div>
           </div>
           
           <div className="mt-8">
-            <DashboardCards />
+            {/* <DashboardCards /> */}
+            {/* Embedded Looker Dashboard */}
+              <iframe
+                src="https://66degrees.looker.com/embed/dashboards/224?Status="
+                title="Looker Dashboard"
+                style={{
+                  width: "100%",
+                  height: "780px",
+                  border: "none",
+                  borderRadius: "12px",
+                  backgroundColor: "#fff",
+                  boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
+                }}
+              ></iframe>
           </div>
         </div>
       </div>
