@@ -73,7 +73,7 @@ export const RevenueChart = () => {
           </div>
           
           <Button variant="outline" className="w-full mt-4" onClick={() => setDialogOpen(true)}>
-            View All Companies
+            View All International Customers
           </Button>
         </CardContent>
       </Card>
