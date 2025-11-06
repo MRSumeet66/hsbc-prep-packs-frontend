@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { SearchBox } from '@/components/features/customer/SearchBox';
 import { DashboardCards } from '@/components/features/dashboard/DashboardCards';
 import { Calendar, Bell, MapPin, Building2 } from 'lucide-react';
@@ -96,6 +97,7 @@ const newsItems = [
 ];
 
 export const HomePage = () => {
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedRegion, setSelectedRegion] = useState<string>('all');
   const [selectedSector, setSelectedSector] = useState<string>('all');
@@ -122,7 +124,12 @@ export const HomePage = () => {
                       className="p-3 border border-border/50 rounded-lg bg-background/80 hover:bg-background transition-colors"
                     >
                       <div className="mb-1">
-                        <h4 className="font-medium text-sm">{item.title}</h4>
+                        <h4 
+                          className="font-medium text-sm cursor-pointer hover:text-primary transition-colors"
+                          onClick={() => navigate(`/customer/${item.id}`)}
+                        >
+                          {item.title}
+                        </h4>
                       </div>
                       <p className="text-xs text-muted-foreground mb-2">{item.description}</p>
                       <div className="text-xs flex items-center gap-1 text-muted-foreground">
