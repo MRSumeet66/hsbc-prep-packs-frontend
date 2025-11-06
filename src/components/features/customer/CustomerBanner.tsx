@@ -67,7 +67,7 @@ export const CustomerBanner: React.FC<CustomerBannerProps> = ({
             </Card>
             <Card className="animate-in border-none shadow-md bg-white rounded-xl overflow-hidden">
               <CardContent className="p-2">
-                <div className="text-[10px] uppercase font-medium text-muted-foreground mb-0.5">BIB Status</div>
+                <div className="text-[10px] uppercase font-medium text-muted-foreground mb-0.5">Digitally Active</div>
                 <div className="text-sm font-bold">{customer.bibStatus || 'N/A'}</div>
               </CardContent>
             </Card>
