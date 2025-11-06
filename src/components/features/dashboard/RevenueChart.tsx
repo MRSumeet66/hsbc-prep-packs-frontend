@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { TrendingUp, ExternalLink } from 'lucide-react';
+import { TrendingUp } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { InternationalCustomersDialog } from './InternationalCustomersDialog';
 
 // UK Regions with mock revenue data
@@ -31,46 +33,44 @@ const allRegions = generateRegions();
 
 export const RevenueChart = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
-  const topRegions = allRegions.slice(0, 3);
-  const totalRevenue = allRegions.reduce((sum, region) => sum + region.revenue, 0);
 
   return (
     <>
       <Card className="border-border/60 bg-card/90 hover:shadow-md transition-all duration-300">
         <CardHeader>
           <CardTitle className="text-lg flex items-center gap-2">
-            <TrendingUp className="h-5 w-5 text-primary" />
+            <TrendingUp className="h-5 w-5 text-green-500" />
             International Customers
           </CardTitle>
-          <p className="text-2xl font-bold text-primary">£{(totalRevenue / 1000000).toFixed(2)}M</p>
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
-            {topRegions.map((region, index) => (
-              <div
-                key={index}
-                className="flex items-center justify-between p-3 rounded-lg border border-border/40 hover:bg-accent/50 transition-colors"
+            {allRegions.slice(0, 3).map((region, index) => (
+              <div 
+                key={index} 
+                className="flex justify-between items-center p-2 border border-border/50 rounded-lg hover:bg-muted/50 transition-colors"
               >
-                <div className="flex items-center gap-3">
-                  <span className="text-sm font-medium text-muted-foreground">
-                    #{index + 1}
-                  </span>
-                  <span className="font-medium text-sm">{region.name}</span>
+                <div className="flex-1 min-w-0 mr-2">
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <p className="font-medium text-sm truncate">{region.name}</p>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>{region.name}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                  <p className="text-xs text-muted-foreground">UK Region</p>
                 </div>
-                <span className="text-lg font-semibold text-primary">
+                <Badge className="bg-green-500/20 text-green-700 dark:text-green-400 flex-shrink-0">
                   £{(region.revenue / 1000000).toFixed(2)}M
-                </span>
+                </Badge>
               </div>
             ))}
-            <Button
-              variant="outline"
-              className="w-full mt-4"
-              onClick={() => setDialogOpen(true)}
-            >
-              View All Regions
-              <ExternalLink className="ml-2 h-4 w-4" />
-            </Button>
           </div>
+          
+          <Button variant="outline" className="w-full mt-4" onClick={() => setDialogOpen(true)}>
+            View All Regions
+          </Button>
         </CardContent>
       </Card>
       
