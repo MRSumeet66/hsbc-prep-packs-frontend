@@ -49,7 +49,7 @@ export const RevenueChart = () => {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <ScrollArea className="h-[240px]">
+          <ScrollArea className="h-[264px]">
             <div className="space-y-3 pr-4">
               {allCompanies.slice(0, 10).map((company, index) => (
                 <div 
