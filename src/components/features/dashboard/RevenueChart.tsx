@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { TrendingUp } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
+import { ScrollArea } from '@/components/ui/scroll-area';
 import { InternationalCustomersDialog } from './InternationalCustomersDialog';
 import { getAllCustomers } from '@/data/mockCustomerData';
 
@@ -48,29 +49,31 @@ export const RevenueChart = () => {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="space-y-3">
-            {allCompanies.slice(0, 3).map((company, index) => (
-              <div 
-                key={index} 
-                className="flex justify-between items-center p-2 border border-border/50 rounded-lg hover:bg-muted/50 transition-colors"
-              >
-                <div className="flex-1 min-w-0 mr-2">
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <p className="font-medium text-sm truncate">{company.name}</p>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>{company.name}</p>
-                    </TooltipContent>
-                  </Tooltip>
-                  <p className="text-xs text-muted-foreground">{company.region}</p>
+          <ScrollArea className="h-[300px]">
+            <div className="space-y-3 pr-4">
+              {allCompanies.slice(0, 10).map((company, index) => (
+                <div 
+                  key={index} 
+                  className="flex justify-between items-center p-2 border border-border/50 rounded-lg hover:bg-muted/50 transition-colors"
+                >
+                  <div className="flex-1 min-w-0 mr-2">
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <p className="font-medium text-sm truncate">{company.name}</p>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>{company.name}</p>
+                      </TooltipContent>
+                    </Tooltip>
+                    <p className="text-xs text-muted-foreground">{company.region}</p>
+                  </div>
+                  <Badge className="bg-green-500/20 text-green-700 dark:text-green-400 flex-shrink-0">
+                    £{(company.revenue / 1000000).toFixed(2)}M
+                  </Badge>
                 </div>
-                <Badge className="bg-green-500/20 text-green-700 dark:text-green-400 flex-shrink-0">
-                  £{(company.revenue / 1000000).toFixed(2)}M
-                </Badge>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </ScrollArea>
           
           <Button variant="outline" className="w-full mt-4" onClick={() => setDialogOpen(true)}>
             View All International Customers
