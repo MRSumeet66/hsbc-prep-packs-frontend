@@ -57,30 +57,32 @@ export const FastGrowthCompanies = () => {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="space-y-3">
-          {companies.slice(0, 3).map((company, index) => (
-            <div 
-              key={index} 
-              className="flex justify-between items-center p-2 border border-border/50 rounded-lg cursor-pointer hover:bg-muted/50 transition-colors"
-              onClick={() => navigate(`/customer/${company.id}`)}
-            >
-              <div className="flex-1 min-w-0 mr-2">
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <p className="font-medium text-sm truncate">{company.name}</p>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>{company.name}</p>
-                  </TooltipContent>
-                </Tooltip>
-                <p className="text-xs text-muted-foreground">{company.industry}</p>
+        <ScrollArea className="h-[240px]">
+          <div className="space-y-3 pr-4">
+            {companies.slice(0, 10).map((company, index) => (
+              <div 
+                key={index} 
+                className="flex justify-between items-center p-2 border border-border/50 rounded-lg cursor-pointer hover:bg-muted/50 transition-colors"
+                onClick={() => navigate(`/customer/${company.id}`)}
+              >
+                <div className="flex-1 min-w-0 mr-2">
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <p className="font-medium text-sm truncate">{company.name}</p>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>{company.name}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                  <p className="text-xs text-muted-foreground">{company.industry}</p>
+                </div>
+                <Badge className="bg-green-500/20 text-green-700 dark:text-green-400 flex-shrink-0">
+                  {company.cagr}% CAGR
+                </Badge>
               </div>
-              <Badge className="bg-green-500/20 text-green-700 dark:text-green-400 flex-shrink-0">
-                {company.cagr}% CAGR
-              </Badge>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </ScrollArea>
         
         <Dialog>
           <DialogTrigger asChild>
