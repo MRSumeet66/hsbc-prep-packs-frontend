@@ -105,7 +105,7 @@ export const HomePage = () => {
       <div className="flex flex-col md:flex-row gap-8">
         {/* News Feed Panel */}
         <div className="md:w-1/3 lg:w-1/4">
-          <Card className="border-border/60 bg-card/90 h-[calc(100vh-7rem)]">
+          <Card className="border-border/60 bg-card/90 h-fit">
             <CardHeader className="pb-2">
               <CardTitle className="text-lg flex items-center gap-2">
                 <Bell className="h-4 w-4" />
@@ -114,7 +114,7 @@ export const HomePage = () => {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <ScrollArea className="h-[calc(100vh-12rem)] pr-4">
+              <ScrollArea className="h-[760px] pr-4">
                 <div className="space-y-4">
                   {newsItems.map((item) => (
                     <div 
