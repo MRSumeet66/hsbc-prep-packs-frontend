@@ -95,7 +95,7 @@ export const LendingPropensity = () => {
         
         <Dialog>
           <DialogTrigger asChild>
-            <Button variant="outline" className="w-full mt-4">View All 100 Customers</Button>
+            <Button variant="outline" className="w-full mt-4">View Top 100 Companies</Button>
           </DialogTrigger>
           <DialogContent className="max-w-4xl max-h-[80vh]">
             <DialogHeader>
