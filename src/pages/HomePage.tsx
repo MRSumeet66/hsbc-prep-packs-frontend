@@ -114,7 +114,7 @@ export const HomePage = () => {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <ScrollArea className="h-[988px] pr-4">
+              <ScrollArea className="h-[1008px] pr-4">
                 <div className="space-y-4">
                   {newsItems.map((item) => (
                     <div 
