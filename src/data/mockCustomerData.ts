@@ -177,10 +177,10 @@ export const getMockCustomerData = (customerId: string): CustomerData => {
         },
         { 
           id: '3', 
-          title: 'Commercial card issued', 
+          title: 'Change of Bank Mandate', 
           date: 'Dec 2020', 
-          type: 'product' as const,
-          subtitle: 'Business credit card activated',
+          type: 'account' as const,
+          subtitle: 'Bank mandate updated',
           status: 'completed' as const,
           time: '11:45'
         },
