@@ -32,7 +32,7 @@ export const Header = ({ showRefreshButton }: HeaderProps) => {
               alt="HSBC Logo" 
               className="h-6 sm:h-7 md:h-8 w-auto"
             />
-            <span className="font-semibold text-sm sm:text-base md:text-lg hidden sm:inline-block">  CMB D&A - Customer Briefing Pack</span>
+            <span className="font-semibold text-sm sm:text-base md:text-lg hidden sm:inline-block">  CMB D&A - Customer Pack</span>
           </div>
 
           {/* Navigation and Actions - Aligned Right */}
