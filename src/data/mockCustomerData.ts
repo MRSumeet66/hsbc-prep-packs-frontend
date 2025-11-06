@@ -180,8 +180,8 @@ export const getMockCustomerData = (customerId: string): CustomerData => {
           title: 'Change of Bank Mandate', 
           date: 'Dec 2020', 
           type: 'account' as const,
-          subtitle: 'Bank mandate updated',
-          status: 'completed' as const,
+          subtitle: 'Request for Bank Mandate Change',
+          status: 'open' as const,
           time: '11:45'
         },
         {
