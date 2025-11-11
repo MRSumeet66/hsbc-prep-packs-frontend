@@ -151,7 +151,7 @@ export const HomePage = () => {
           </div>
           
           <div className="mt-6">
-            {/* <SearchBox value={searchQuery} onChange={setSearchQuery} /> */}
+            <SearchBox value={searchQuery} onChange={setSearchQuery} />
             
             {/* Filters */}
             <div className="mt-4 flex flex-col md:flex-row gap-4">
